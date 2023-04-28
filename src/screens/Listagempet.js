@@ -1,0 +1,19 @@
+import * as React from 'react';
+import { Text, View, ScrollView, StyleSheet, Image } from 'react-native';
+import Constants from 'expo-constants';
+import styles from '../styles/AppStyles';
+
+
+export default function Listagempet() {
+  return (
+    <View style={[styles.container]}>
+      <ScrollView>
+      
+      <View style={[styles.centered]}>
+        <Text style={[styles.title, {marginTop: 30,}]}>NÃO PODE ADOTAR UM PET NO MOMENTO? ENTRE EM CONTATO COM OS ABRIGOS E FAÇA SUA DOAÇÃO! </Text>
+        <Text style={styles.title}>(LOCALIZE OS ABRIGOS NAS INFOS DOS PETS DISPONÍVEIS)</Text>
+      </View>
+      </ScrollView>
+    </View>
+  );
+}
