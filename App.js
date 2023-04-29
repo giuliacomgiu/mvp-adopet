@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import * as React from 'react';
 import { Text, View, ScrollView, StyleSheet, Image, Button } from 'react-native';
 import Constants from 'expo-constants';
@@ -8,15 +9,18 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
-import styles from './src/styles/AppStyles';
-import Home from './src/screens/Home';
-import Listagempet from './src/screens/Listagempet';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import styles from './assets/styles/AppStyles';
+import Home from './assets/screens/Home';
+import Listagempet from './assets/screens/Listagempet';
+import Listacao from './assets/screens/Listacao';
 
 
 function LogoTitle() {
   return (
     <View style={[styles.centered]}>
-      <Image source={require('./src/assets/logo.png')} style={{width: 150, height: 40, marginLeft: 40,}} />
+      <Image source={require('./assets/src/logo.png')} style={{width: 150, height: 40, marginLeft: 40,}} />
     </View>
   );
 }
@@ -37,6 +41,15 @@ function Gerenciar() {
   );
 }
 
+
+function Listapet() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Listagempet />
+    </View>
+  );
+}
+
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
@@ -46,6 +59,8 @@ function CustomDrawerContent(props) {
 }
 
 const Drawer = createDrawerNavigator();
+
+const Stack = createNativeStackNavigator();
 
 function MyDrawer() {
   return (
@@ -59,10 +74,17 @@ function MyDrawer() {
   );
 }
 
+
+
 export default function App() {
   return (
     <NavigationContainer>
-      <MyDrawer />
+      <Stack.Navigator useLegacyImplementation>
+        <Stack.Screen name="Home" component={MyDrawer} options={{ headerShown: false }}/>
+        <Stack.Screen name="Listagem pet" component={Listagempet} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="Listacao" component={Listacao} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
