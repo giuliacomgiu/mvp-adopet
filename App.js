@@ -15,6 +15,10 @@ import styles from './assets/styles/AppStyles';
 import Home from './assets/screens/Home';
 import Listagempet from './assets/screens/Listagempet';
 import Listacao from './assets/screens/Listacao';
+import Listagato from './assets/screens/Listagato';
+import Listaoutros from './assets/screens/Listaoutros';
+import Gerabrigo from './assets/screens/Abrigoteste';
+import Detalhepet from './assets/screens/Detalhepet';
 
 
 function LogoTitle() {
@@ -36,7 +40,7 @@ function Inicio({ navigation }) {
 function Gerenciar() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Listagempet />
+      <Gerabrigo />
     </View>
   );
 }
@@ -83,6 +87,9 @@ export default function App() {
         <Stack.Screen name="Home" component={MyDrawer} options={{ headerShown: false }}/>
         <Stack.Screen name="Listagem pet" component={Listagempet} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
         <Stack.Screen name="Listacao" component={Listacao} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="Listagato" component={Listagato} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="Listaoutros" component={Listaoutros} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="Detalhepet" component={Detalhepet} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
 
       </Stack.Navigator>
     </NavigationContainer>

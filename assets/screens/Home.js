@@ -16,13 +16,13 @@ export default function Home() {
         <Image source={require('../src/banner_peq.png')} style={{width: 327, height: 200, margin: 8, marginTop: 20,}}/>
         <Text style={[styles.title, {marginTop: 30, marginBottom: 30,}]}>BUSQUE POR CATEGORIA</Text>
  
-        <TouchableOpacity onPress={() => navigation.navigate('Listagem pet')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Listacao')}>
           <Image source={require('../src/banner_cao.png')} style={{width: 300, height: 70, margin: 10,}}/>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Listacao')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Listagato')}>
           <Image source={require('../src/banner_gato.png')} style={{width: 300, height: 70, margin: 10,}}/>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Listagem pet')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Listaoutros')}>
           <Image source={require('../src/banner_outros.png')} style={{width: 300, height: 70, margin: 10,}}/>
         </TouchableOpacity>
         <Text style={[styles.title, {marginTop: 30,}]}>NÃO PODE ADOTAR UM PET NO MOMENTO? ENTRE EM CONTATO COM OS ABRIGOS E FAÇA SUA DOAÇÃO! </Text>

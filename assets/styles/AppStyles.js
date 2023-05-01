@@ -21,7 +21,28 @@ const styles = StyleSheet.create({
       fontSize: 18,
       fontWeight: 'bold',
       textAlign: 'center',
-     }
+     },
+    cardpets: {
+      backgroundColor: '#FFFFFF',
+      color: '#000000',
+      fontSize: 12,
+      textAlign: 'left',
+      margin: 2,
+      marginLeft: 5,
+    },
+    titcardpets: {
+      color: '#000000',
+      fontSize: 16,
+      fontWeight: 'bold',
+      textAlign: 'left',
+      margin: 2,
+      marginLeft: 5,
+    },
+    fotocardpets: {
+      width: 150,
+      height: 120,
+      margin: 0,
+    },
     
   });
 
