@@ -20,5 +20,9 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.abrigos = require("./abrigo.js")(sequelize, Sequelize);
+db.pets = require("./pet.js")(sequelize, Sequelize);
+
+db.abrigos.hasMany(db.pets)
+db.pets.belongsTo(db.abrigos)
 
 module.exports = db;

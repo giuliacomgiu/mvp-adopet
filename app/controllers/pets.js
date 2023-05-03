@@ -1,36 +1,39 @@
 const db = require("../models");
-const Abrigo = db.abrigos;
+const Pet = db.pets;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  const abrigo = {
+  const pet = {
     nome: req.body.nome,
     descricao: req.body.descricao,
-    gestor: req.body.gestor,
-    cnpj: req.body.cnpj,
-    endereco: req.body.endereco,
-    email: req.body.email,
-    whatsapp: req.body.whatsapp
+    idade: req.body.idade,
+    porte: req.body.porte,
+    raca: req.body.raca,
+    personalidade: req.body.personalidade,
+    especie: req.body.especie,
+    abrigoId: req.body.abrigoId
   };
 
-  Abrigo.create(abrigo)
+  console.log(pet);
+  Pet.create(pet)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
+      console.log(err)
       res.status(500).send({
         message:
           err.message || "Some error occurred while creating the pet."
       });
     });
-
 };
 
 exports.findAll = (req, res) => {
-  let nome = req.query.nome;
-  var condition = nome ? { nome: { [Op.like]: `%${nome}%` } } : null;
+  let especie = req.query.nome;
+  // var condition = nome ? { nome: { [Op.like]: `%${nome}%` } } : null;
 
-  Abrigo.findAll({ where: condition })
+  // Pet.findAll({ where: condition })
+  Pet.findAll()
     .then(data => {
       res.send(data);
     })

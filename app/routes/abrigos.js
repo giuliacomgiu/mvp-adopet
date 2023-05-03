@@ -1,9 +1,11 @@
-module.exports = app => {
-  const tutorials = require("../controllers/abrigos.js");
+const abrigos = require("../controllers/abrigos.js");
 
+module.exports = app => {
   var router = require("express").Router();
 
-  router.get("/", tutorials.findAll);
+  router.get("/", abrigos.findAll);
+
+  router.post("/", abrigos.create);
 
   app.use('/api/abrigos', router);
 };
