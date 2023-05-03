@@ -6,49 +6,13 @@ import styles from '../styles/AppStyles';
 import Listagempet from './Listagempet';
 import Listagato from './Listagato';
 import Listaoutros from './Listaoutros';
-import CardPets from '../../components/CardPets';
+import Cardteste from '../../components/Cardteste';
+import dadospets from '../../components/Petstestes';
 
 export default function Listacao() {
  
   const navigation = useNavigation();
  
-  const pet1 = {
-    fotocardpet: require('../src/catioro.png'),
-    nomepet: "Catioro",
-    sexopet: "Macho",
-    idadepet: "3 anos",
-    porte: "Grande",
-    raca: "SRD",
-    personalidade: "Brincalhão",
-    descricao: "Catioro é um amigo muito brincalhão e agitado, que gosta de correr em grandes quintais e gastar sua energia! Também é muito alegre e carinhoso e adora crianças!",
-    abrigo: "abrigo",
-  }
-  
-  const pet2 = {
-    fotocardpet: require('../src/gatinea.png'),
-    nomepet: "Gatinea",
-    sexopet: "Fêmea",
-    idadepet: "3 anos",
-    porte: "Pequeno",
-    raca: "SRD",
-    personalidade: "Manhosa",
-    descricao: "Gatínea é uma amiga dócil e manhosa, que adora um carinho e um aconchego! Também é um pouquinho preguiçosa e adora ficar dormindo, principalmente quando está deitada perto de seus novos amigos!",
-    abrigo: "abrigo",
-  }
-  
-  const pet3 = {
-    fotocardpet: require('../src/cacti.png'),
-    nomepet: "Cacti",
-    sexopet: "Macho",
-    idadepet: "1 anos",
-    porte: "não definido",
-    raca: "Cacatua",
-    personalidade: "Falador",
-    descricao: "Cacti é uma cacatua alegre, divertida e curiosa! E adora comer!",
-    abrigo: "abrigo",
-  }
-  
-
   return (
     <View style={[styles.container]}>
      <View style={{
@@ -93,14 +57,8 @@ export default function Listacao() {
         alignContent: 'center',
         flexWrap: 'wrap',
       }}>
-          <CardPets pet={pet1} style={{flex: 1,}}/>
-          <CardPets pet={pet2} style={{flex: 1,}}/>
-          <CardPets pet={pet3} style={{flex: 1,}}/>
-          <CardPets pet={pet1} style={{flex: 1,}}/>
-          <CardPets pet={pet1} style={{flex: 1,}}/>
-          <CardPets pet={pet1} style={{flex: 1,}}/>
-          <CardPets pet={pet1} style={{flex: 1,}}/>
-          <CardPets pet={pet1} />
+          <Cardteste pet={dadospets} style={{flex: 1,}}/>
+         
         </View>
       </ScrollView>
      </View> 

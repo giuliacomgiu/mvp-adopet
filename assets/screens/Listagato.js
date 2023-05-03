@@ -96,13 +96,7 @@ export default function Listagato() {
         flexWrap: 'wrap',
       }}>
           <CardPets pet={pet2} style={{flex: 1,}}/>
-          <CardPets pet={pet2} style={{flex: 1,}}/>
-          <CardPets pet={pet2} style={{flex: 1,}}/>
-          <CardPets pet={pet2} style={{flex: 1,}}/>
-          <CardPets pet={pet2} style={{flex: 1,}}/>
-          <CardPets pet={pet1} style={{flex: 1,}}/>
-          <CardPets pet={pet1} style={{flex: 1,}}/>
-          <CardPets pet={pet1} />
+          <CardPets pet={pet1}/>
         </View>
       </ScrollView>
      </View> 

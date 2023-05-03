@@ -10,29 +10,28 @@ import CardPets from '../../components/CardPets';
 
 export default function Detalhepet(){
     return(
+        <SafeAreaView>
         <View style={{
             flex: 1,
-            width: 300,
-            height: 0,
-            minWidth: 300,
+            width: '100%',
+            height: 300,
             minHeight: 300,
-            maxWidth: '100%',
-            maxHeight: '100%',
             alignItems: 'center',
             alignContent: 'flex-start',
             flexWrap: 'wrap',
           }}>
-              <View style={{flex: 1, width: '100%', height: 50, minWidth: 300, minHeight: 50, maxWidth: '100%', maxHeight: 50, flexWrap: 'wrap',}}>
-                <Text style={[styles.title]}>DETALHES DO PET</Text>
+              <View style={{flex: 1, width: '100%', height: 50, }}>
+                <Text style={[styles.title, {textAlign: 'center'}]}>DETALHES DO PET</Text>
               </View>
             
-              <View style={{flex: 1, width: '100%', height: 100, minWidth: 300, minHeight: 100, maxWidth: '100%', justifyContent: 'center', alignItems: 'flex-start', alignSelf: 'center', alignContent: 'flex-start', flexWrap: 'wrap',}}>
+              <View style={{flex: 1, width: '100%', justifyContent: 'center', alignItems: 'flex-start', alignSelf: 'center', alignContent: 'flex-start', flexWrap: 'wrap',}}>
 
               </View>
             
-              <View style={{flex: 1, width: '100%', height: 80, minWidth: 300, minHeight: 80, maxWidth: '100%', justifyContent: 'center', alignItems: 'flex-start', alignSelf: 'center', alignContent: 'flex-start', flexWrap: 'wrap',}}>
-              <Button>ENTRE EM CONTATO (WHATSAPP)</Button>
+              <View style={{flex: 1, width: '100%', height: 80, justifyContent: 'center', alignItems: 'center', alignSelf: 'center', alignContent: 'center', flexWrap: 'wrap',}}>
+              <Button title="ENTRE EM CONTATO (WHATSAPP)"/>
               </View>
         </View>
+        </SafeAreaView>
     );
 }
