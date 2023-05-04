@@ -34,7 +34,7 @@ export default function Listagempet() {
         </View>
       </View>
      
-      <ScrollView style={{width: '100%'}}>
+      <ScrollView style={{width: '100%'}} showsVerticalScrollIndicator={false} >
          <Image source={{uri: 'https://placehold.jp/340x600.png'}}
             style={{width: 340, height: 600, margin: 10,}} />
       </ScrollView>

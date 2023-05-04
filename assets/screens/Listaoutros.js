@@ -33,7 +33,7 @@ export default function Listaoutros() {
           </View>
         </View>
        
-        <ScrollView style={{width: '100%'}}>
+        <ScrollView style={{width: '100%'}} showsVerticalScrollIndicator={false} >
            <Image source={{uri: 'https://placehold.jp/300x600.png'}}
               style={{width: 300, height: 600, margin: 10,}} />
         </ScrollView>

@@ -19,6 +19,7 @@ import Listagato from './assets/screens/Listagato';
 import Listaoutros from './assets/screens/Listaoutros';
 import Gerabrigo from './assets/screens/Abrigoteste';
 import DetalhePet from './components/DetalhePet';
+import CadastroAbrigo from './assets/screens/CadastroAbrigo';
 
 
 function LogoTitle() {
@@ -90,6 +91,8 @@ export default function App() {
         <Stack.Screen name="Listagato" component={Listagato} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
         <Stack.Screen name="Listaoutros" component={Listaoutros} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
         <Stack.Screen name="DetalhePet" component={DetalhePet} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="CadastroAbrigo" component={CadastroAbrigo} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+
 
       </Stack.Navigator>
     </NavigationContainer>

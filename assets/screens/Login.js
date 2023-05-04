@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { Text, View, ScrollView, StyleSheet, Image, Button, TouchableOpacity } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, Image, Button, TouchableOpacity, TextInput, SafeAreaView} from 'react-native';
 import Constants from 'expo-constants';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../styles/AppStyles';
-import { TextInput } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 export default function Login() {
@@ -37,9 +35,19 @@ const navigation = useNavigation();
         
       }}>
         <Text>Usuário:</Text>
-        <TextInput style={[styles.caixastexto, {width: 250}]} />
+        <Controller 
+          control={control} 
+          name="userabrigo" 
+          render={({ field: {onChange, value} }) => (
+             <TextInput 
+               style={[styles.input]} 
+               onChangeText={onChange} 
+               value={value}/>
+            )}
+        />
+        
         <Text>Senha:</Text>
-        <TextInput style={[styles.caixastexto, {width: 250}]} />
+        <TextInput style={[styles.input, {width: 250}]} />
       </View>
       <View style={{
         width: '100%',

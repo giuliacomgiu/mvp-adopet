@@ -73,20 +73,55 @@ const styles = StyleSheet.create({
       margin: 5,
       fontSize: 16,
     },
-    caixastexto: {
-        backgroundColor: '#CCCCCC',
-        borderColor: '#000000',
-        borderWidth: 1,
-        color: '#000000',
-        padding: 3,
-        margin: 5,
-    },
-    textoform: {
+    textoForm: {
       color: '#000000',
-      margin: 5,
-      fontSize: 14,
-    
+      fontSize: 16,
+      paddingBottom: 5,
     },
+    containerForm:{
+      flex:1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#EEEEEE',
+      paddingHorizontal: 10,
+      paddingLeft: 5,
+    },
+    titleForm:{
+      fontSize: 18,
+      marginVertical: 10,
+      color: '#000000',
+      fontWeight: 'bold',
+      margin: 4,
+      textAlign: 'center',
+    },
+    input:{
+      width: '100%',
+      height: 40,
+      backgroundColor: '#CCCCCC',
+      paddingHorizontal: 8,
+      marginBottom: 12,
+      color: '#000000',
+    },
+    button:{
+      height: 40,
+      backgroundColor: '#444444',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    buttonText:{
+      color: '#FFFFFF',
+      fontWeight: 'bold',
+      fontSize: 18,
+    },
+    buttonContact:{
+      width: '100%',
+      height: 40,
+      backgroundColor: '#45D800',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+
+
 
   });
 

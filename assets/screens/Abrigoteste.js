@@ -1,19 +1,25 @@
 import * as React from 'react';
-import { Text, View, ScrollView, StyleSheet, Image, Button, TouchableOpacity } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, Image, Button, TouchableOpacity, TextInput, SafeAreaView} from 'react-native';
 import Constants from 'expo-constants';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../styles/AppStyles';
-import { TextInput } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useForm, Controller } from 'react-hook-form';
 
 
-export default function CadastroAbrigo() {
+export default function Login() {
  
 const navigation = useNavigation();
+
+const { control, handleSubmit, formState: { errors } } = useForm({})
+
+function handleSignIn(data){
+   console.log(data);
+  }
     
   return (
    <SafeAreaView>
     <ScrollView showsVerticalScrollIndicator={false} >
+
     <View style={{
       flex: 1,
       width: '100%',
@@ -22,53 +28,46 @@ const navigation = useNavigation();
     }}>
       <View style={{
         width: '100%',
-        height: 100,
+        height: 80,
         alignItems: 'center',
         margin: 1,
       }}>
-        <Text style={[styles.title]}>PREENCHA O FORMULÁRIO ABAIXO PARA EFETUAR SEU CADASTRO</Text>
+        <Text style={[styles.title]}>EFETUE SEU LOGIN</Text>
         <Text>(EXCLUSIVO PARA ADMINISTRADORES DE ABRIGOS)</Text>
       </View>
       <View style={{
         width: '100%',
-        alignItems: 'flex-start',
-        alignSelf: 'flex-start',
+        height: 140,
+        alignItems: 'center',
+        alignSelf: 'center',
         margin: 5,
         
       }}>
-        <Text style={styles.textoform}>Usuário:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>Senha:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>Confirme a senha:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>Nome do abrigo:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>Responsável:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>CNPJ:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>Endereço:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300, height: 200}]} />
-        <Text style={styles.textoform}>Cidade:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>CEP:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>E-mail para contato:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>Whatsapp:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>Redes Sociais:</Text>
-        <Text style={styles.textoform}>Instagram:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>Facebook:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>Outras:</Text>
-        <TextInput style={[styles.caixastexto, {width: 300}]} />
-        <Text style={styles.textoform}>Fotos do local:</Text>
-        <TextInput style={[styles.caixastexto, {width: 200}]} /><Button title="+" />
-        <TextInput style={[styles.caixastexto, {width: 200}]} /><Button title="+" />
-        <TextInput style={[styles.caixastexto, {width: 200}]} /><Button title="+" />
+        <Text style={[styles.textoForm]}>Usuário:</Text>
+        <Controller 
+          control={control} 
+          name="userabrigo" 
+          render={({ field: {onChange, value} }) => (
+             <TextInput 
+               style={[styles.input, {width: 250}]} 
+               onChangeText={onChange} 
+               value={value}/>
+            )}
+        />
+
+        <Text style={[styles.textoForm]}>Senha:</Text>
+        <Controller
+          control={control}
+          name="senha"
+          render={({ field: {onChange, value} }) => (
+            <TextInput
+              style={[styles.input, {width: 250}]}
+              onChangeText={onChange}
+              value={value}
+              secureTextEntry={true}
+            />
+          )}
+        />
       </View>
       <View style={{
         width: '100%',
@@ -77,11 +76,33 @@ const navigation = useNavigation();
         alignSelf: 'center',
         margin: 5,
       }}>
-        <Button title="Cadastrar"></Button>
+      <Text>{'\n'}</Text>
+
+
+      <TouchableOpacity style={[styles.button, {width: 150}]} onPress={handleSubmit(handleSignIn)}>
+        <Text style={[styles.buttonText]}>ENTRAR</Text>
+      </TouchableOpacity>
+
+
       </View>
-     
+      <View style={{
+        width: '100%',
+        height: 80,
+        alignItems: 'center',
+        alignSelf: 'center',
+        margin: 5,
+      }}>
+
+        <Text>{'\n'}</Text>
+
+        <Text>Ainda não tem cadastro?</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('CadastroAbrigo')}>
+          <Text style={[styles.title]}> Clique aqui e cadastre-se</Text>
+        </TouchableOpacity> 
       </View>
-     </ScrollView> 
+    </View>
+
+    </ScrollView>
     </SafeAreaView>
   );
 }

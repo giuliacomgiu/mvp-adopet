@@ -46,7 +46,7 @@ export default function Listacao() {
         </View>
         
 
-      <ScrollView style={{width: '100%'}}>
+      <ScrollView style={{width: '100%'}} showsVerticalScrollIndicator={false} >
         <View style={{
         flex: 1,
         width: 360,
