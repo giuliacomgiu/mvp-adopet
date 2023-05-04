@@ -3,14 +3,23 @@ import { Text, View, ScrollView, StyleSheet, Image, Button, TouchableOpacity, Te
 import Constants from 'expo-constants';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../styles/AppStyles';
+import { useForm, Controller } from 'react-hook-form';
 
 
 export default function Login() {
  
 const navigation = useNavigation();
+
+const { control, handleSubmit, formState: { errors } } = useForm({})
+
+function handleSignIn(data){
+   console.log(data);
+  }
     
   return (
    <SafeAreaView>
+    <ScrollView showsVerticalScrollIndicator={false} >
+
     <View style={{
       flex: 1,
       width: '100%',
@@ -34,20 +43,31 @@ const navigation = useNavigation();
         margin: 5,
         
       }}>
-        <Text>Usuário:</Text>
+        <Text style={[styles.textoForm]}>Usuário:</Text>
         <Controller 
           control={control} 
           name="userabrigo" 
           render={({ field: {onChange, value} }) => (
              <TextInput 
-               style={[styles.input]} 
+               style={[styles.input, {width: 250}]} 
                onChangeText={onChange} 
                value={value}/>
             )}
         />
-        
-        <Text>Senha:</Text>
-        <TextInput style={[styles.input, {width: 250}]} />
+
+        <Text style={[styles.textoForm]}>Senha:</Text>
+        <Controller
+          control={control}
+          name="senha"
+          render={({ field: {onChange, value} }) => (
+            <TextInput
+              style={[styles.input, {width: 250}]}
+              onChangeText={onChange}
+              value={value}
+              secureTextEntry={true}
+            />
+          )}
+        />
       </View>
       <View style={{
         width: '100%',
@@ -56,7 +76,14 @@ const navigation = useNavigation();
         alignSelf: 'center',
         margin: 5,
       }}>
-        <Button title="Login"></Button>
+      <Text>{'\n'}</Text>
+
+
+      <TouchableOpacity style={[styles.button, {width: 150}]} onPress={handleSubmit(handleSignIn)}>
+        <Text style={[styles.buttonText]}>ENTRAR</Text>
+      </TouchableOpacity>
+
+
       </View>
       <View style={{
         width: '100%',
@@ -65,12 +92,17 @@ const navigation = useNavigation();
         alignSelf: 'center',
         margin: 5,
       }}>
+
+        <Text>{'\n'}</Text>
+
         <Text>Ainda não tem cadastro?</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('CadastroAbrigo')}>
           <Text style={[styles.title]}> Clique aqui e cadastre-se</Text>
         </TouchableOpacity> 
       </View>
     </View>
+
+    </ScrollView>
     </SafeAreaView>
   );
 }

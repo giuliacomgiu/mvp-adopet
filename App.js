@@ -20,6 +20,9 @@ import Listaoutros from './assets/screens/Listaoutros';
 import Gerabrigo from './assets/screens/Abrigoteste';
 import DetalhePet from './components/DetalhePet';
 import CadastroAbrigo from './assets/screens/CadastroAbrigo';
+import CadastroAnimal from './assets/screens/Abrigoteste';
+import Login from './assets/screens/Login';
+import GerenciaAbrigo from './assets/screens/GerenciaAbrigo';
 
 
 function LogoTitle() {
@@ -92,7 +95,10 @@ export default function App() {
         <Stack.Screen name="Listaoutros" component={Listaoutros} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
         <Stack.Screen name="DetalhePet" component={DetalhePet} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
         <Stack.Screen name="CadastroAbrigo" component={CadastroAbrigo} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
-
+        <Stack.Screen name="Login" component={Login} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="GerenciaAbrigo" component={GerenciaAbrigo} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="CadastroAnimal" component={CadastroAnimal} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+       
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -42,7 +42,7 @@ function handleSignIn(data){
         margin: 5,        
       }}>
 
-        <Text style={[styles.textoform]}>Usuário: *</Text>
+        <Text style={[styles.textoForm]}>Usuário: *</Text>
         <Controller 
           control={control} 
           name="userabrigo" 
@@ -54,7 +54,7 @@ function handleSignIn(data){
             )}
         />
 
-        <Text style={styles.textoform}>Senha: *</Text>
+        <Text style={styles.textoForm}>Senha: *</Text>
         <Controller
           control={control}
           name="senha"
@@ -68,7 +68,7 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoform}>Confirme a senha: *</Text>
+        <Text style={styles.textoForm}>Confirme a senha: *</Text>
         <Controller
           control={control}
           name="confsenha"
@@ -82,7 +82,7 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoform}>Nome do abrigo: *</Text>
+        <Text style={styles.textoForm}>Nome do abrigo: *</Text>
         <Controller
           control={control}
           name="nomeabrigo"
@@ -96,7 +96,7 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoform}>Nome do responsável: *</Text>
+        <Text style={styles.textoForm}>Nome do responsável: *</Text>
         <Controller
           control={control}
           name="responsavel"
@@ -110,7 +110,7 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoform}>CNPJ do abrigo: *</Text>
+        <Text style={styles.textoForm}>CNPJ do abrigo: *</Text>
         <Controller
           control={control}
           name="cnpj"
@@ -124,21 +124,21 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoform}>Endereço: *</Text>
+        <Text style={styles.textoForm}>Endereço: *</Text>
         <Controller
           control={control}
           name="endereco"
           render={({ field: {onChange, value} }) => (
             
             <TextInput
-              style={[styles.input, {height: 120}]}
+              style={[styles.input, {height: 120, textAlignVertical: 'top'}]}
               onChangeText={onChange}
               value={value}
             />
           )}
         />
 
-        <Text style={styles.textoform}>Cidade: *</Text>
+        <Text style={styles.textoForm}>Cidade: *</Text>
         <Controller
           control={control}
           name="cidade"
@@ -152,7 +152,7 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoform}>E-mail para contato: *</Text>
+        <Text style={styles.textoForm}>E-mail para contato: *</Text>
         <Controller
           control={control}
           name="email"
@@ -166,7 +166,7 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoform}>Celular (Whatsapp): *</Text>
+        <Text style={styles.textoForm}>Celular (Whatsapp): *</Text>
         <Controller
           control={control}
           name="celular"
@@ -180,9 +180,9 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoform}>Redes Sociais: </Text>
+        <Text style={styles.textoForm}>Redes Sociais: </Text>
 
-        <Text style={styles.textoform}>Instagram:</Text>
+        <Text style={styles.textoForm}>Instagram:</Text>
         <Controller
           control={control}
           name="insta"
@@ -196,7 +196,7 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoform}>Facebook:</Text>
+        <Text style={styles.textoForm}>Facebook:</Text>
         <Controller
           control={control}
           name="fbook"
@@ -210,7 +210,7 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoform}>Outras: </Text>
+        <Text style={styles.textoForm}>Outras: </Text>
         <Controller
           control={control}
           name="redeoutras"
@@ -224,7 +224,7 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoform}>Fotos do abrigo: </Text>
+        <Text style={styles.textoForm}>Fotos do abrigo: </Text>
 
         <Controller
           control={control}
@@ -264,7 +264,7 @@ function handleSignIn(data){
 
 
         <TouchableOpacity style={[styles.button, {width: 250}]} onPress={handleSubmit(handleSignIn)}>
-          <Text style={[styles.buttonText]}>Cadastrar</Text>
+          <Text style={[styles.buttonText]}>CADASTRAR</Text>
         </TouchableOpacity>
      
         </View>
