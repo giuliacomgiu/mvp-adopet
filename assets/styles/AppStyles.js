@@ -120,8 +120,16 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
     },
-
-
+    tagView: {
+      flexWrap: 'wrap',
+      justifyContent: 'space-evenly',
+        alignItems: 'flex-start',
+        alignContent: 'space-between',
+    },
+    list: {
+      margin: 20,
+      
+    }
 
   });
 

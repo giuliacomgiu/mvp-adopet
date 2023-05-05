@@ -1,17 +1,29 @@
 import * as React from 'react';
-import { Text, View, ScrollView, StyleSheet, Image, Button, TouchableOpacity, SafeAreaView } from 'react-native';
-import Constants from 'expo-constants';
+import { Text, View, ScrollView, StyleSheet, Image, Button, TouchableOpacity, SafeAreaView, FlatList } from 'react-native';
+import { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../styles/AppStyles';
 import Listagempet from './Listagempet';
 import Listagato from './Listagato';
 import Listaoutros from './Listaoutros';
-import Cardteste from '../../components/Cardteste';
-import dadospets from '../../components/Petstestes';
+import ListItem from '../../components/ListItem';
+import Petstestes from '../../components/Petstestes';
 
 export default function Listacao() {
  
   const navigation = useNavigation();
+
+  const [searchText, setSearchText] = useState('');
+
+  const [list, setList] = useState(Petstestes)
+  
+  useState(()=>{
+       setList(
+          Petstestes.filter(item => {
+            return (item.tipo.indexOf('caes') > -1 ); })
+       );
+     },
+  );
  
   return (
     <View style={[styles.container]}>
@@ -46,21 +58,21 @@ export default function Listacao() {
         </View>
         
 
-      <ScrollView style={{width: '100%'}} showsVerticalScrollIndicator={false} >
-        <View style={{
-        flex: 1,
-        width: 360,
-        height: '100%',
-        justifyContent: 'space-evenly',
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        alignContent: 'center',
-        flexWrap: 'wrap',
-      }}>
-          <Cardteste pet={dadospets} style={{flex: 1,}}/>
+       
          
-        </View>
-      </ScrollView>
+
+          <FlatList
+            data={list}
+            style={[styles.list, {width: '100%'}]}
+            WrapperStyle={styles.tagView}
+            numColumns={2}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) => <ListItem data={item} />}
+            keyExtractor={(item) => item.id}
+          />
+
+      
+
      </View> 
     </View>
   );
