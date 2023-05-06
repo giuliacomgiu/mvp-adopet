@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import { Text, View, ScrollView, StyleSheet, Image, Button, SafeAreaView } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, Image, Button, SafeAreaView, TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import {
@@ -16,6 +16,8 @@ import styles from '../assets/styles/AppStyles';
 
 
 export default function DetalhePet({route}) {
+
+  const navigation = useNavigation();
 
   const animal = route?.params;
 
@@ -63,13 +65,18 @@ export default function DetalhePet({route}) {
             alignItems: 'flex-start',
           }]}>
                
-               <Text style={[styles.textodetpet]}>{animal.sexopet}</Text>
+               <Text style={[styles.textodetpet]}>Sexo: {animal.sexopet}</Text>
                <Text style={[styles.textodetpet]}>Idade: {animal.idadepet}</Text>
                <Text style={[styles.textodetpet]}>Porte: {animal.porte}</Text>
                <Text style={[styles.textodetpet]}>Raça: {animal.raca}</Text>
                <Text style={[styles.textodetpet]}>Personalidade: {animal.personalidade}{'\n'}</Text>
-               <Text style={[styles.textodetpet]}>{animal.descricao}{'\n'}</Text>
-               <Text style={[styles.textodetpet]}>{animal.abrigo}{'\n'}</Text>
+               <Text style={[styles.textodetpet, {fontWeight: 'bold', fontSize: 18}]}>{animal.descricao}{'\n'}</Text>
+               
+               <Text style={[styles.textodetpet]}>Abrigo responsável: </Text>
+               <TouchableOpacity onPress={() => navigation.navigate('DetalheAbrigo', animal)}>
+               <Text style={[styles.textodetpet, {color: '#229933', fontWeight: 'bold', fontSize: 18,}]}>{animal.abrigo}{'\n'}</Text>
+               </TouchableOpacity> 
+
           </View>
           <View style={{
             flex: 1,
@@ -79,9 +86,12 @@ export default function DetalhePet({route}) {
             alignSelf: 'center',
             padding: 20,
           }}>
-          <Button title={"Botão"} />
+            <TouchableOpacity style={[styles.buttonContact, {width: 250}]} >
+              <Text style={[styles.buttonText]}>CONTATO (WHATSAPP)</Text>
+            </TouchableOpacity>
           </View>
-          </View>
+
+         </View>
         </ScrollView>
       </SafeAreaView>
       );

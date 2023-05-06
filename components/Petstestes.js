@@ -10,7 +10,7 @@ export default [
    raca: "SRD",
    personalidade: "Brincalhão",
    descricao: "Catioro é um amigo muito brincalhão e agitado, que gosta de correr em grandes quintais e gastar sua energia! Também é muito alegre e carinhoso e adora crianças!",
-   abrigo: "abrigo",
+   abrigo: "MEU PET MINHA VIDA",
 },
 {
    id: '2',
@@ -23,7 +23,7 @@ export default [
    raca: "SRD",
    personalidade: "Calmo",
    descricao: "Snoopy é um cachorro calmo e preguiçoso, adora dormir e aconchego",
-   abrigo: "abrigo",
+   abrigo: "CASA DOS AMIGOS PETS",
 },
 {
    id: '3',
@@ -36,7 +36,7 @@ export default [
    raca: "SRD",
    personalidade: "Calmo",
    descricao: "Xauxixa é um cachorro calmo e preguiçoso, adora dormir e aconchego",
-   abrigo: "abrigo",
+   abrigo: "MEU PET MINHA VIDA",
 },
 {
    id: '4',
@@ -49,7 +49,7 @@ export default [
    raca: "SRD",
    personalidade: "Manhosa",
    descricao: "Gatínea é uma amiga dócil e manhosa, que adora um carinho e um aconchego! Também é um pouquinho preguiçosa e adora ficar dormindo, principalmente quando está deitada perto de seus novos amigos!",
-   abrigo: "abrigo",
+   abrigo: "CASA DOS AMIGOS PETS",
   },
   {
    id: '5',
@@ -62,7 +62,7 @@ export default [
    raca: "SRD",
    personalidade: "Curioso",
    descricao: "Mingau é um gato curioso que adora descobrir cantos novos pela casa e ficar aninhado neles.",
-   abrigo: "abrigo",
+   abrigo: "MEU PET MINHA VIDA",
   },
 {
    id: '6',
@@ -75,6 +75,6 @@ export default [
    raca: "Cacatua",
    personalidade: "Falador",
    descricao: "Cacti é uma cacatua alegre, divertida e curiosa! E adora comer!",
-   abrigo: "abrigo",
+   abrigo: "MEU PET MINHA VIDA",
 },
 ];

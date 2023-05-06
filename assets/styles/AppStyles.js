@@ -129,7 +129,17 @@ const styles = StyleSheet.create({
     list: {
       margin: 20,
       
-    }
+    },
+    containerGerencia: {
+      flex: 1,
+      flexWrap: 'wrap',
+      justifyContent: 'flex-start',
+      alignItems: 'flex-start',
+      paddingTop: Constants.statusBarHeight,
+      backgroundColor: '#EEEEEE',
+      padding: 10,
+      width: '100%',
+    },
 
   });
 
