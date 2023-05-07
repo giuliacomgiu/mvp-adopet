@@ -1,7 +1,7 @@
 module.exports = {
     HOST: "localhost",
-    USER: "root",
-    PASSWORD: "123456",
+    USER: "debian-sys-maint",
+    PASSWORD: "NA3zHAJWvAcSbU9V",
     DB: "adopetdb",
     dialect: "mysql",
     pool: {

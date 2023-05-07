@@ -18,6 +18,7 @@ app.get("/api", (req, res) => {
 });
 
 require("./app/routes/abrigos.js")(app);
+require("./app/routes/pets.js")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
