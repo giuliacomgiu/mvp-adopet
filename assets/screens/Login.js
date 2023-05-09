@@ -97,7 +97,7 @@ function handleSignIn(data){
 
         <Text>Ainda não tem cadastro?</Text>
         <TouchableOpacity onPress={() => navigation.navigate('CadastroAbrigo')}>
-          <Text style={[styles.title]}> Clique aqui e cadastre-se</Text>
+          <Text style={[styles.title, {color: '#229933', fontSize: 20}]}> Clique aqui e cadastre-se</Text>
         </TouchableOpacity> 
       </View>
     </View>

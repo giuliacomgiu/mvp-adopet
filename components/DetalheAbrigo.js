@@ -60,7 +60,6 @@ export default function DetalheAbrigo({route}) {
        flexWrap: 'wrap',
      }}>
        <View style={{
-         flex: 1,
          width: '100%',
          height: 50,
          alignItems: 'center',
@@ -69,9 +68,8 @@ export default function DetalheAbrigo({route}) {
        <Text style={[styles.titpets]}>DETALHES DO ABRIGO</Text>
        </View>
        <View style={{
-         flex: 1,
          width: '100%',
-         height: 300,
+         height: 250,
          alignItems: 'center',
        }}>
           <Image source={data.fotoabrigo} style={[styles.fotopet]} />
@@ -92,18 +90,32 @@ export default function DetalheAbrigo({route}) {
          alignItems: 'flex-start',
        }]}>
             
-            <Text style={[styles.textodetpet]}>Nome do Abrigo: {data.nomeabrigo}</Text>
+            <Text style={{alignSelf: 'center', fontSize: 20, fontWeight: 'bold', marginBottom: 15}}>{data.nomeabrigo}</Text>
+            <Text style={[styles.textodetpet]}>Responsável pelo abrigo: {data.responsavel}</Text>
             <Text style={[styles.textodetpet]}>CNPJ: {data.cnpj}</Text>
             <Text style={[styles.textodetpet]}>Endereço: {data.endereco}</Text>
-            <Text style={[styles.textodetpet]}>Cidade: {data.cidade}</Text>
-            <Text style={[styles.textodetpet]}>E-mail para contato: {data.email} </Text>
+            <Text style={[styles.textodetpet]}>Cidade: {data.cidade}{'\n'}</Text>
+            <Text style={[styles.textodetpet]}>E-mail para contato: {'\n'}{data.email} {'\n'}</Text>
             <Text style={[styles.textodetpet]}>Redes sociais:</Text>
-            <Text style={[styles.textodetpet]}>Instagram: {data.instg}</Text>
-            <Text style={[styles.textodetpet]}>Facebook: {data.fbook}</Text>
-            <Text style={[styles.textodetpet]}>Outras: {data.outras}{'\n'}</Text>
+            <Text style={[styles.textodetpet]}>{data.instg}</Text>
+            <Text style={[styles.textodetpet]}>{data.fbook}</Text>
+            <Text style={[styles.textodetpet]}>{data.outras}{'\n'}</Text>
   
 
        </View>
+
+       <View style={{
+         flex: 1,
+         width: '100%',
+         height: 80,
+         alignItems: 'center',
+         alignSelf: 'center',
+         padding: 20,
+       }}>
+         <Text style={{alignSelf: 'center', fontSize: 18, fontWeight: 'bold', marginBottom: 5}}>QUER COLABORAR COM O ABRIGO?</Text>
+         <Text style={{alignSelf: 'center', fontSize: 18, fontWeight: 'bold', marginBottom: 5}}>CLIQUE ABAIXO:</Text>
+       </View>
+
        <View style={{
          flex: 1,
          width: '100%',
