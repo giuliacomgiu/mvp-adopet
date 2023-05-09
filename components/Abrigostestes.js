@@ -1,0 +1,31 @@
+export default [
+    {
+    id: '1',
+    fotoabrigo: require('../assets/src/abrigo.png'),
+    nomeabrigo: "MEU PET MINHA VIDA",
+    responsavel: "Fulano Cicrano",
+    cnpj: "01.234.567/0001-89",
+    endereco: "Rua klnlkkçlmlrnklncsdfjk, 2000",
+    cidade: "São Paulo",
+    email: "meupetminhavida@email.com",
+    celular: "(11)98765-4321",
+    instg: "http://instagram.com/meupetminhavida",
+    fbook: "http://facebook.com/meupetminhavida",
+    outras: "http://tiktok.com/meupetminhavida",
+ },
+ {
+    id: '2',
+    fotoabrigo: require('../assets/src/abrigo2.jpg'),
+    nomeabrigo: "CASA DOS AMIGOS PETS",
+    responsavel: "Dom Pedro",
+    cnpj: "89.765.432/0001-10",
+    endereco: "Estrada do campo, 01000000",
+    cidade: "Sorocaba",
+    email: "casadosanimais@email.com",
+    celular: "(11) 99999-8888",
+    instg: "http://instagram.com/casadosamigospets",
+    fbook: "http://facebook.com/casadosamigospets",
+    outras: '',
+ },
+ 
+ ];

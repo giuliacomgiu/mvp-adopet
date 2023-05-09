@@ -43,7 +43,104 @@ const styles = StyleSheet.create({
       height: 120,
       margin: 0,
     },
-    
+    fotopet: {
+      width: '100%',
+      height: 300,
+    },
+    titpets: {
+      color: '#000000',
+      fontSize: 20,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      margin: 2,
+      marginLeft: 5,
+    },
+    nomepets: {
+      backgroundColor: '#FFFFFF',
+      color: '#000000',
+      fontSize: 34,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      margin: 2,
+      marginLeft: 5,
+    },
+    detalhespets: {
+      backgroundColor: '#FFFFFF',
+      color: '#000000',
+      textAlign: 'left',
+    },
+    textodetpet: {
+      margin: 5,
+      fontSize: 16,
+    },
+    textoForm: {
+      color: '#000000',
+      fontSize: 16,
+      paddingBottom: 5,
+    },
+    containerForm:{
+      flex:1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#EEEEEE',
+      paddingHorizontal: 10,
+      paddingLeft: 5,
+    },
+    titleForm:{
+      fontSize: 18,
+      marginVertical: 10,
+      color: '#000000',
+      fontWeight: 'bold',
+      margin: 4,
+      textAlign: 'center',
+    },
+    input:{
+      width: '100%',
+      height: 40,
+      backgroundColor: '#CCCCCC',
+      paddingHorizontal: 8,
+      marginBottom: 12,
+      color: '#000000',
+    },
+    button:{
+      height: 40,
+      backgroundColor: '#444444',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    buttonText:{
+      color: '#FFFFFF',
+      fontWeight: 'bold',
+      fontSize: 18,
+    },
+    buttonContact:{
+      width: '100%',
+      height: 40,
+      backgroundColor: '#45D800',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    tagView: {
+      flexWrap: 'wrap',
+      justifyContent: 'space-evenly',
+        alignItems: 'flex-start',
+        alignContent: 'space-between',
+    },
+    list: {
+      margin: 20,
+      
+    },
+    containerGerencia: {
+      flex: 1,
+      flexWrap: 'wrap',
+      justifyContent: 'flex-start',
+      alignItems: 'flex-start',
+      paddingTop: Constants.statusBarHeight,
+      backgroundColor: '#EEEEEE',
+      padding: 10,
+      width: '100%',
+    },
+
   });
 
   export default styles;

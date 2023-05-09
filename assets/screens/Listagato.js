@@ -1,52 +1,29 @@
 import * as React from 'react';
-import { Text, View, ScrollView, StyleSheet, Image, Button, TouchableOpacity } from 'react-native';
-import Constants from 'expo-constants';
+import { Text, View, ScrollView, StyleSheet, Image, Button, TouchableOpacity, SafeAreaView, FlatList } from 'react-native';
+import { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../styles/AppStyles';
 import Listagempet from './Listagempet';
 import Listacao from './Listacao';
 import Listaoutros from './Listaoutros';
-import CardPets from '../../components/CardPets';
+import ListItem from '../../components/ListItem';
+import Petstestes from '../../components/Petstestes';
 
 export default function Listagato() {
  
   const navigation = useNavigation();
- 
-  const pet1 = {
-    fotocardpet: require('../src/catioro.png'),
-    nomepet: "Catioro",
-    sexopet: "Macho",
-    idadepet: "3 anos",
-    porte: "Grande",
-    raca: "SRD",
-    personalidade: "Brincalhão",
-    descricao: "Catioro é um amigo muito brincalhão e agitado, que gosta de correr em grandes quintais e gastar sua energia! Também é muito alegre e carinhoso e adora crianças!",
-    abrigo: "abrigo",
-  }
+
+  const [searchText, setSearchText] = useState('');
+
+  const [list, setList] = useState(Petstestes)
   
-  const pet2 = {
-    fotocardpet: require('../src/gatinea.png'),
-    nomepet: "Gatinea",
-    sexopet: "Fêmea",
-    idadepet: "3 anos",
-    porte: "Pequeno",
-    raca: "SRD",
-    personalidade: "Manhosa",
-    descricao: "Gatínea é uma amiga dócil e manhosa, que adora um carinho e um aconchego! Também é um pouquinho preguiçosa e adora ficar dormindo, principalmente quando está deitada perto de seus novos amigos!",
-    abrigo: "abrigo",
-  }
-  
-  const pet3 = {
-    fotocardpet: require('../src/cacti.png'),
-    nomepet: "Cacti",
-    sexopet: "Macho",
-    idadepet: "1 anos",
-    porte: "não definido",
-    raca: "Cacatua",
-    personalidade: "Falador",
-    descricao: "Cacti é uma cacatua alegre, divertida e curiosa! E adora comer!",
-    abrigo: "abrigo",
-  }
+  useState(()=>{
+       setList(
+          Petstestes.filter(item => {
+            return (item.tipo.indexOf('gatos') > -1 ); })
+       );
+     },
+  );
   
 
   return (
@@ -84,27 +61,18 @@ export default function Listagato() {
         </View>
         
 
-      <ScrollView style={{width: '100%'}}>
-        <View style={{
-        flex: 1,
-        width: 360,
-        height: '100%',
-        justifyContent: 'space-evenly',
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        alignContent: 'center',
-        flexWrap: 'wrap',
-      }}>
-          <CardPets pet={pet2} style={{flex: 1,}}/>
-          <CardPets pet={pet2} style={{flex: 1,}}/>
-          <CardPets pet={pet2} style={{flex: 1,}}/>
-          <CardPets pet={pet2} style={{flex: 1,}}/>
-          <CardPets pet={pet2} style={{flex: 1,}}/>
-          <CardPets pet={pet1} style={{flex: 1,}}/>
-          <CardPets pet={pet1} style={{flex: 1,}}/>
-          <CardPets pet={pet1} />
-        </View>
-      </ScrollView>
+        <FlatList
+            data={list}
+            style={[styles.list, {width: '100%'}]}
+            WrapperStyle={styles.tagView}
+            numColumns={2}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) => <ListItem data={item} />}
+            keyExtractor={(item) => item.id}
+          />
+
+      
+
      </View> 
     </View>
   );

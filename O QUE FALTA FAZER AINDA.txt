@@ -1,0 +1,7 @@
+falta:
+
+2- implementar as funções de upload de imagens das telas de cadastro do abrigo e cadastro do animal
+3- implementar a tela de login (layout já está pronto (arquivo login.js), falta implementar a função de login e como vai identificar o usuário logado)
+4- habilitar as funções dos botões (login, cadastrar abrigo, cadastrar pet, editar abrigo, editar pet e deletar pet)
+5- habilitar o botão contato whatsapp
+6- vincular o banco de dados a tudo isso
