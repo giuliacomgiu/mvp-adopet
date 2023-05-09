@@ -1,13 +1,22 @@
 import * as React from 'react';
 import { Text, View, ScrollView, StyleSheet, Image, Button, TouchableOpacity, TextInput, SafeAreaView} from 'react-native';
 import Constants from 'expo-constants';
-import { useNavigation } from '@react-navigation/native';
 import styles from '../styles/AppStyles';
 import { useForm, Controller } from 'react-hook-form';
+import { useNavigation } from '@react-navigation/native';
+import { SelectList } from 'react-native-dropdown-select-list'
+import { onChange } from 'react-native-reanimated';
 
-export default function CadastroAbrigo() {
+
+export default function Cadpet() {
  
 const navigation = useNavigation();
+const [selected, setSelected] = React.useState("");
+const tipoPet = [
+  {key:'1', value:'Cães'},
+  {key:'2', value:'Gatos'},
+  {key:'3', value:'Outros'},
+]
 
 const { control, handleSubmit, formState: { errors } } = useForm({})
 
@@ -26,13 +35,12 @@ function handleSignIn(data){
     }]}>
       <View style={{
         width: '100%',
-        height: 150,
+        height: 60,
         alignItems: 'center',
         margin: 1,
       }}>
-        <Text style={[styles.titleForm]}>PREENCHA O FORMULÁRIO ABAIXO PARA EFETUAR SEU CADASTRO</Text>
-        <Text>(EXCLUSIVO PARA ADMINISTRADORES DE ABRIGOS)</Text>
-        <Text style={{color: '#CC0020'}}>{'\n'}Os campos marcados com "*" são de preenchimento obrigatório</Text>
+        <Text style={[styles.titleForm, {width: 320}]}>CADASTRO DO ANIMAL</Text>
+        
 
       </View>
       <View style={{
@@ -42,50 +50,56 @@ function handleSignIn(data){
         margin: 5,        
       }}>
 
-        <Text style={[styles.textoForm]}>Usuário: *</Text>
+        <Text style={[styles.textoForm]}>Tipo de animal (preenchimento obrigatório):</Text>
         <Controller 
           control={control} 
-          name="userabrigo" 
+          name="tipopet" 
           render={({ field: {onChange, value} }) => (
-             <TextInput 
-               style={[styles.input]} 
-               onChangeText={onChange} 
-               value={value}/>
+            <SelectList 
+                setSelected={(value) => onChange(value)}
+                data={tipoPet} 
+                save = "value"
+                value= {value}
+                selected={onChange}  
+                dropdownStyles={{backgroundColor: '#FFFFFF',  maxHeight: 130, width: 200}}
+                dropdownItemStyles={{marginHorizontal: 4,}}
+                dropdownTextStyles={{color: '#000000'}}
+                boxStyles={{width: 300, backgroundColor: '#CCCCCC'}}
+                />
+            
             )}
         />
 
-        <Text style={styles.textoForm}>Senha: *</Text>
+        <Text style={styles.textoForm}>{'\n'}Nome do animal:</Text>
         <Controller
           control={control}
-          name="senha"
+          name="nomeanimal"
           render={({ field: {onChange, value} }) => (
             <TextInput
               style={styles.input}
               onChangeText={onChange}
               value={value}
-              secureTextEntry={true}
             />
           )}
         />
 
-        <Text style={styles.textoForm}>Confirme a senha: *</Text>
+        <Text style={styles.textoForm}>Idade (definir anos e meses): </Text>
         <Controller
           control={control}
-          name="confsenha"
+          name="idade"
           render={({ field: {onChange, value} }) => (
               <TextInput
               style={styles.input}
               onChangeText={onChange}
               value={value}
-              secureTextEntry={true}
-            />
+              />
           )}
         />
 
-        <Text style={styles.textoForm}>Nome do abrigo: *</Text>
+        <Text style={styles.textoForm}>Sexo</Text>
         <Controller
           control={control}
-          name="nomeabrigo"
+          name="sexo"
           render={({ field: {onChange, value} }) => (
             
             <TextInput
@@ -96,10 +110,10 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoForm}>Nome do responsável: *</Text>
+        <Text style={styles.textoForm}>Porte:</Text>
         <Controller
           control={control}
-          name="responsavel"
+          name="porte"
           render={({ field: {onChange, value} }) => (
             
             <TextInput
@@ -110,10 +124,10 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoForm}>CNPJ do abrigo: *</Text>
+        <Text style={styles.textoForm}>Raça:</Text>
         <Controller
           control={control}
-          name="cnpj"
+          name="raca"
           render={({ field: {onChange, value} }) => (
             
             <TextInput
@@ -124,10 +138,24 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoForm}>Endereço: *</Text>
+        <Text style={styles.textoForm}>Personalidade:</Text>
         <Controller
           control={control}
-          name="endereco"
+          name="personalidade"
+          render={({ field: {onChange, value} }) => (
+            
+            <TextInput
+              style={styles.input}
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+        />
+
+        <Text style={[styles.textoForm]}>Descrição do animal:</Text>
+        <Controller
+          control={control}
+          name="descricao"
           render={({ field: {onChange, value} }) => (
             
             <TextInput
@@ -138,93 +166,8 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoForm}>Cidade: *</Text>
-        <Controller
-          control={control}
-          name="cidade"
-          render={({ field: {onChange, value} }) => (
-            
-            <TextInput
-              style={styles.input}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-
-        <Text style={styles.textoForm}>E-mail para contato: *</Text>
-        <Controller
-          control={control}
-          name="email"
-          render={({ field: {onChange, value} }) => (
-            
-            <TextInput
-              style={styles.input}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-
-        <Text style={styles.textoForm}>Celular (Whatsapp): *</Text>
-        <Controller
-          control={control}
-          name="celular"
-          render={({ field: {onChange, value} }) => (
-            
-            <TextInput
-              style={styles.input}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-
-        <Text style={styles.textoForm}>Redes Sociais: </Text>
-
-        <Text style={styles.textoForm}>Instagram:</Text>
-        <Controller
-          control={control}
-          name="insta"
-          render={({ field: {onChange, value} }) => (
-            
-            <TextInput
-              style={styles.input}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-
-        <Text style={styles.textoForm}>Facebook:</Text>
-        <Controller
-          control={control}
-          name="fbook"
-          render={({ field: {onChange, value} }) => (
-            
-            <TextInput
-              style={styles.input}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-
-        <Text style={styles.textoForm}>Outras: </Text>
-        <Controller
-          control={control}
-          name="redeoutras"
-          render={({ field: {onChange, value} }) => (
-            
-            <TextInput
-              style={styles.input}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-
-        <Text style={styles.textoForm}>Fotos do abrigo: </Text>
+ 
+        <Text style={styles.textoForm}>Fotos do animal: </Text>
 
         <View style={{
         width: 300,
@@ -242,7 +185,7 @@ function handleSignIn(data){
             }}> 
                <Controller
 	                 control={control}
-	                 name="fotoabrigo1"
+	                 name="fotopet1"
 	                 render={({ field: {onChange, value} }) => (
 	                     <TextInput
 	                     style={[styles.input, {width: 250}]}
@@ -275,7 +218,7 @@ function handleSignIn(data){
 	              }}> 
 	                  <Controller
 			           control={control}
-			           name="fotoabrigo2"
+			           name="fotopet2"
 			           render={({ field: {onChange, value} }) => (
 			               <TextInput
 			               style={[styles.input, {width: 250}]}
@@ -308,7 +251,7 @@ function handleSignIn(data){
 	  	              }}> 
 	  	                  <Controller
 				            control={control}
-				            name="fotoabrigo3"
+				            name="fotopet3"
 				            render={({ field: {onChange, value} }) => (
 				                <TextInput
 				                style={[styles.input, {width: 250}]}
@@ -330,10 +273,13 @@ function handleSignIn(data){
 	  	              </View>
               </View>
             </View>
-
+         
+	  	  
         <TouchableOpacity style={[styles.button, {width: 250, alignSelf: 'center', margin: 30}]} onPress={handleSubmit(handleSignIn)}>
-          <Text style={[styles.buttonText]}>CADASTRAR</Text>
+          <Text style={[styles.buttonText]}>SALVAR ALTERAÇÕES</Text>
         </TouchableOpacity>
+
+      
      
         </View>
        </View>

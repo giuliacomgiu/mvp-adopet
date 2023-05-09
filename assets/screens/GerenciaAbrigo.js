@@ -28,7 +28,7 @@ export default function GerenciaAbrigo() {
     <SafeAreaView>
       <View style={[styles.containerGerencia, {width: 300}]}>
         <View style={width= '100%'}>
-          <Text style={[styles.title, {marginTop: 30,}]}>ABRIGO ({Abrigostestes.nomeabrigo})</Text>
+          <Text style={[styles.title, {marginTop: 30,}]}>ABRIGO {abr.nomeabrigo}</Text>
           <TouchableOpacity onPress={() => navigation.navigate('CadastroAbrigo')}>
             <Text style={[styles.textodetpet, {color: '#229922', fontWeight: 'bold'}]}>Editar dados do abrigo</Text>
           </TouchableOpacity> 
@@ -61,7 +61,7 @@ export default function GerenciaAbrigo() {
               width: 50,
               height: 30,
             }}>
-              <TouchableOpacity style={[styles.button, {width: 40}]} onPress={() => navigation.navigate('CadastroAnimal')}>
+              <TouchableOpacity style={[styles.button, {width: 40}]} onPress={() => navigation.navigate('Cadpet')}>
                 <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
               </TouchableOpacity>
             </View>

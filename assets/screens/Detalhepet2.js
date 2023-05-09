@@ -8,7 +8,7 @@ import Listagato from './Listagato';
 import Listaoutros from './Listaoutros';
 import CardPets from '../../components/CardPets';
 
-export default function Detalhepet(){
+export default function Detalhepet2(){
     return(
         <SafeAreaView>
         <View style={{

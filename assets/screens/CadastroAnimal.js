@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Text, View, ScrollView, StyleSheet, Image, Button, TouchableOpacity, TextInput, SafeAreaView} from 'react-native';
 import Constants from 'expo-constants';
-import { useNavigation } from '@react-navigation/native';
 import styles from '../styles/AppStyles';
 import { useForm, Controller } from 'react-hook-form';
+import { useNavigation } from '@react-navigation/native';
 import { SelectList } from 'react-native-dropdown-select-list'
 import { onChange } from 'react-native-reanimated';
 
@@ -83,94 +83,11 @@ function handleSignIn(data){
           )}
         />
 
-        <Text style={styles.textoForm}>Idade (definir anos e meses): </Text>
-        <Controller
-          control={control}
-          name="idade"
-          render={({ field: {onChange, value} }) => (
-              <TextInput
-              style={styles.input}
-              onChangeText={onChange}
-              value={value}
-              />
-          )}
-        />
-
-        <Text style={styles.textoForm}>Sexo</Text>
-        <Controller
-          control={control}
-          name="sexo"
-          render={({ field: {onChange, value} }) => (
-            
-            <TextInput
-              style={styles.input}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-
-        <Text style={styles.textoForm}>Porte:</Text>
-        <Controller
-          control={control}
-          name="porte"
-          render={({ field: {onChange, value} }) => (
-            
-            <TextInput
-              style={styles.input}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-
-        <Text style={styles.textoForm}>Raça:</Text>
-        <Controller
-          control={control}
-          name="raca"
-          render={({ field: {onChange, value} }) => (
-            
-            <TextInput
-              style={styles.input}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-
-        <Text style={styles.textoForm}>Personalidade:</Text>
-        <Controller
-          control={control}
-          name="personalidade"
-          render={({ field: {onChange, value} }) => (
-            
-            <TextInput
-              style={styles.input}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-
-        <Text style={[styles.textoForm]}>Descrição do animal:</Text>
-        <Controller
-          control={control}
-          name="descricao"
-          render={({ field: {onChange, value} }) => (
-            
-            <TextInput
-              style={[styles.input, {height: 120, textAlignVertical: 'top'}]}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-
+        
         
         <Text style={styles.textoForm}>Fotos do animal: </Text>
 
         <View style={{
-                  flex: 1,
         width: 300,
         padding: 2,
         flexDirection: 'column',
@@ -181,7 +98,6 @@ function handleSignIn(data){
             padding: 2,
             width: 250,
             flexDirection: 'row',
-            flexWrap: 'wrap',
           }}>
             <View style={{
             }}> 
@@ -201,8 +117,9 @@ function handleSignIn(data){
             <View style={{
               width: 50,
               height: 30,
+              paddingLeft: 15,
             }}>
-              <TouchableOpacity style={[styles.button, {width: 40}]}>
+              <TouchableOpacity style={[styles.button, {width: 40,}]}>
                 <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
               </TouchableOpacity>
             </View>
@@ -212,9 +129,8 @@ function handleSignIn(data){
           {/*  linha */}
 	            <View style={{ 
 	              padding: 2,
-	              width: 100,
+	              width: 250,
 	              flexDirection: 'row',
-	              flexWrap: 'wrap',
 	            }}>
 	              <View style={{
 	              }}> 
@@ -234,6 +150,7 @@ function handleSignIn(data){
 	              <View style={{
 	                width: 50,
 	                height: 30,
+                    paddingLeft: 15,
 	              }}>
 	                <TouchableOpacity style={[styles.button, {width: 40}]}>
 	                  <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
@@ -245,9 +162,8 @@ function handleSignIn(data){
            {/*  linha */}
 	  	            <View style={{
 	  	              padding: 2,
-	  	              width: 100,
+	  	              width: 250,
 	  	              flexDirection: 'row',
-	  	              flexWrap: 'wrap',
 	  	            }}>
 	  	              <View style={{
 	  	              }}> 
@@ -267,6 +183,7 @@ function handleSignIn(data){
 	  	              <View style={{
 	  	                width: 50,
 	  	                height: 30,
+                        paddingLeft: 15,
 	  	              }}>
 	  	                <TouchableOpacity style={[styles.button, {width: 40}]}>
 	  	                  <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
@@ -274,11 +191,15 @@ function handleSignIn(data){
 	  	              </View>
               </View>
             </View>
+         
 	  	  
 
         <TouchableOpacity style={[styles.button, {width: 250}]} onPress={handleSubmit(handleSignIn)}>
           <Text style={[styles.buttonText]}>SALVAR ALTERAÇÕES</Text>
         </TouchableOpacity>
+
+
+      
      
         </View>
        </View>

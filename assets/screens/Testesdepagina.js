@@ -12,12 +12,13 @@ import {
 import { useState, useEffect } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import styles from '../assets/styles/AppStyles';
-import Abrigostestes from './Abrigostestes';
+import styles from '../styles/AppStyles';
+import Abrigostestes from '../../components/Abrigostestes';
+import Petstestes from '../../components/Petstestes';
 
 
 
-export default function DetalheAbrigo({route}) {
+export default function Testesdepagina({route}) {
 
   const navigation = useNavigation();
 

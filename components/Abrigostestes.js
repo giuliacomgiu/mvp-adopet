@@ -15,7 +15,7 @@ export default [
  },
  {
     id: '2',
-    fotoabrigo: require('../assets/src/abrigo.png'),
+    fotoabrigo: require('../assets/src/abrigo2.jpg'),
     nomeabrigo: "CASA DOS AMIGOS PETS",
     responsavel: "Dom Pedro",
     cnpj: "89.765.432/0001-10",
