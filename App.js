@@ -17,8 +17,14 @@ import Listagempet from './assets/screens/Listagempet';
 import Listacao from './assets/screens/Listacao';
 import Listagato from './assets/screens/Listagato';
 import Listaoutros from './assets/screens/Listaoutros';
-import Gerabrigo from './assets/screens/Abrigoteste';
-import Detalhepet from './assets/screens/Detalhepet';
+import DetalhePet from './components/DetalhePet';
+import CadastroAbrigo from './assets/screens/CadastroAbrigo';
+import CadastroAnimal from './assets/screens/Abrigoteste';
+import Login from './assets/screens/Login';
+import GerenciaAbrigo from './assets/screens/GerenciaAbrigo';
+import DetalheAbrigo from './components/DetalheAbrigo';
+import Cadpet from './assets/screens/Cadpet';
+import Testesdepagina from './assets/screens/Testesdepagina';
 
 
 function LogoTitle() {
@@ -40,7 +46,7 @@ function Inicio({ navigation }) {
 function Gerenciar() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Gerabrigo />
+      <GerenciaAbrigo />
     </View>
   );
 }
@@ -89,7 +95,15 @@ export default function App() {
         <Stack.Screen name="Listacao" component={Listacao} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
         <Stack.Screen name="Listagato" component={Listagato} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
         <Stack.Screen name="Listaoutros" component={Listaoutros} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
-        <Stack.Screen name="Detalhepet" component={Detalhepet} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="DetalhePet" component={DetalhePet} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="CadastroAbrigo" component={CadastroAbrigo} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="Login" component={Login} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="GerenciaAbrigo" component={GerenciaAbrigo} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="CadastroAnimal" component={CadastroAnimal} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="DetalheAbrigo" component={DetalheAbrigo} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="Cadpet" component={Cadpet} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+        <Stack.Screen name="Testesdepagina" component={Testesdepagina} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
+
 
       </Stack.Navigator>
     </NavigationContainer>

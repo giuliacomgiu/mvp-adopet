@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Text, View, ScrollView, StyleSheet, Image, Button, TouchableOpacity, TextInput, SafeAreaView} from 'react-native';
 import Constants from 'expo-constants';
-import { useNavigation } from '@react-navigation/native';
 import styles from '../styles/AppStyles';
 import { useForm, Controller } from 'react-hook-form';
+import { useNavigation } from '@react-navigation/native';
 import { SelectList } from 'react-native-dropdown-select-list'
 import { onChange } from 'react-native-reanimated';
 
 
-export default function CadastroAnimal() {
+export default function Cadpet() {
  
 const navigation = useNavigation();
 const [selected, setSelected] = React.useState("");
@@ -166,49 +166,120 @@ function handleSignIn(data){
           )}
         />
 
-        
+ 
         <Text style={styles.textoForm}>Fotos do animal: </Text>
 
-        <Controller
-          control={control}
-          name="fotopet1"
-          render={({ field: {onChange, value} }) => (
-              <TextInput
-              style={[styles.input, {width: 250}]}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
+        <View style={{
+        width: 300,
+        padding: 2,
+        flexDirection: 'column',
+        flexWrap: 'wrap',
+      }}>
+         {/*  linha */}
+          <View style={{
+            padding: 2,
+            width: 250,
+            flexDirection: 'row',
+          }}>
+            <View style={{
+            }}> 
+               <Controller
+	                 control={control}
+	                 name="fotopet1"
+	                 render={({ field: {onChange, value} }) => (
+	                     <TextInput
+	                     style={[styles.input, {width: 250}]}
+	                     onChangeText={onChange}
+	                     value={value}
+	                   />
+	                 )}
         />
+            </View>
+            
+            <View style={{
+              width: 50,
+              height: 30,
+              paddingLeft: 15,
+            }}>
+              <TouchableOpacity style={[styles.button, {width: 40,}]}>
+                <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
+              </TouchableOpacity>
+            </View>
 
-        <Controller
-          control={control}
-          name="fotopet2"
-          render={({ field: {onChange, value} }) => (
-              <TextInput
-              style={[styles.input, {width: 250}]}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
+          </View>
+          
+          {/*  linha */}
+	            <View style={{ 
+	              padding: 2,
+	              width: 250,
+	              flexDirection: 'row',
+	            }}>
+	              <View style={{
+	              }}> 
+	                  <Controller
+			           control={control}
+			           name="fotopet2"
+			           render={({ field: {onChange, value} }) => (
+			               <TextInput
+			               style={[styles.input, {width: 250}]}
+			               onChangeText={onChange}
+			               value={value}
+			             />
+			           )}
         />
-
-        <Controller
-          control={control}
-          name="fotopet3"
-          render={({ field: {onChange, value} }) => (
-              <TextInput
-              style={[styles.input, {width: 250}]}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
+	              </View>
+	              
+	              <View style={{
+	                width: 50,
+	                height: 30,
+                    paddingLeft: 15,
+	              }}>
+	                <TouchableOpacity style={[styles.button, {width: 40}]}>
+	                  <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
+	                </TouchableOpacity>
+	              </View>
+	  
+          </View>
+          
+           {/*  linha */}
+	  	            <View style={{
+	  	              padding: 2,
+	  	              width: 250,
+	  	              flexDirection: 'row',
+	  	            }}>
+	  	              <View style={{
+	  	              }}> 
+	  	                  <Controller
+				            control={control}
+				            name="fotopet3"
+				            render={({ field: {onChange, value} }) => (
+				                <TextInput
+				                style={[styles.input, {width: 250}]}
+				                onChangeText={onChange}
+				                value={value}
+				              />
+				            )}
         />
-
-
-        <TouchableOpacity style={[styles.button, {width: 250}]} onPress={handleSubmit(handleSignIn)}>
+	  	              </View>
+	  	              
+	  	              <View style={{
+	  	                width: 50,
+	  	                height: 30,
+                        paddingLeft: 15,
+	  	              }}>
+	  	                <TouchableOpacity style={[styles.button, {width: 40}]}>
+	  	                  <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
+	  	                </TouchableOpacity>
+	  	              </View>
+              </View>
+            </View>
+         
+	  	  
+        <TouchableOpacity style={[styles.button, {width: 250, alignSelf: 'center', margin: 30}]} onPress={handleSubmit(handleSignIn)}>
           <Text style={[styles.buttonText]}>SALVAR ALTERAÇÕES</Text>
         </TouchableOpacity>
+
+      
      
         </View>
        </View>
