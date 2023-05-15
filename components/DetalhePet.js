@@ -17,8 +17,8 @@ import styles from '../assets/styles/AppStyles';
 
 
 export default function DetalhePet({ route }) {
-  const petId = route.params.id;
   const navigation = useNavigation();
+  const petId = route.params.id;
   const [animal, setAnimal] = useState([]);
 
   let getAnimal = async () => {

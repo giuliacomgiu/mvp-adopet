@@ -7,7 +7,6 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function ListItem({ data }) {
   const navigation = useNavigation()
-  console.log(data)
   let fotocardpet = require('../assets/src/cacti.png');
   switch (data.especie) {
     case 1:
