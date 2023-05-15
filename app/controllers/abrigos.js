@@ -23,8 +23,8 @@ exports.create = async (req, res) => {
     foto3: req.body.foto3
   };
 
-  const senhaCriptografada = await bcrypt.hash(abrigo_params.senha, 10); // gera o hash da senha
-  abrigo_params.senha = senhaCriptografada; // substitui a senha pela sua versão criptografada
+  const senhaCriptografada = await bcrypt.hash(abrigo_params.senha, 10);
+  abrigo_params.senha = senhaCriptografada; 
 
   await Abrigo.create(abrigo_params)
     .then(data => {
