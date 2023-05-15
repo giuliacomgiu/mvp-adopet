@@ -1,6 +1,8 @@
 const db = require("../models");
 const Abrigo = db.abrigos;
 const Op = db.Sequelize.Op;
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken'); 
 
 exports.create = async (req, res) => {
   const abrigo_params = {
@@ -21,11 +23,12 @@ exports.create = async (req, res) => {
     foto3: req.body.foto3
   };
 
-
-
+  const senhaCriptografada = await bcrypt.hash(abrigo_params.senha, 10); // gera o hash da senha
+  abrigo_params.senha = senhaCriptografada; // substitui a senha pela sua versão criptografada
 
   await Abrigo.create(abrigo_params)
     .then(data => {
+      
       res.send(data);
     })
     .catch(err => {
@@ -110,25 +113,32 @@ exports.delete = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
-  const { usuario, senha } = req.body;
+  const { email, senha } = req.body;
 
   try {
-    const user = await usuario.findOne({ where: { usuario: usuario } });
+    const user = await Abrigo.findOne({ where: { email } });
+
 
     if (!user) {
-      return res.status(400).json({ message: 'Usuário não encontrado' });
+      return res.status(401).json({ error: 'Email ou senha incorretos.' });
     }
 
-    const isMatch = await bcrypt.compare(senha, user.senha);
+    const match = await bcrypt.compare(senha, user.senha);
 
-    if (!isMatch) {
-      return res.status(400).json({ message: 'Senha incorreta' });
+    if (!match) {
+      return res.status(401).json({ error: 'Email ou senha incorretos.' });
     }
 
-    res.status(200).json({ message: 'Login efetuado com sucesso' });
+    const token = jwt.sign({ id: user.id }, user.email, { expiresIn: '1h' });
+    return res.json({ user, token });;
+
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ message: 'Erro ao efetuar login' });
+    console.error(error);
+    return res.status(500).json({ error: 'Erro ao fazer login.' });
   }
 };
 
+exports.logout = async(req, res) => {
+  req.session.destroy();
+  return res.status(200).json({ message: 'Logout realizado com sucesso.' });
+};
