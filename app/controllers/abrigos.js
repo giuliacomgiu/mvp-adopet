@@ -1,6 +1,8 @@
 const db = require("../models");
 const Abrigo = db.abrigos;
 const Op = db.Sequelize.Op;
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken'); 
 
 exports.create = async (req, res) => {
   const abrigo_params = {
@@ -12,6 +14,9 @@ exports.create = async (req, res) => {
     email: req.body.email,
     whatsapp: req.body.whatsapp
   };
+
+  const senhaCriptografada = await bcrypt.hash(abrigo_params.senha, 10);
+  abrigo_params.senha = senhaCriptografada; 
 
   await Abrigo.create(abrigo_params)
     .then(data => {
@@ -96,4 +101,35 @@ exports.delete = async (req, res) => {
         message: "Could not delete Tutorial with id=" + id
       });
     });
+};
+
+exports.login = async (req, res) => {
+  const { email, senha } = req.body;
+
+  try {
+    const user = await Abrigo.findOne({ where: { email } });
+
+
+    if (!user) {
+      return res.status(401).json({ error: 'Email ou senha incorretos.' });
+    }
+
+    const match = await bcrypt.compare(senha, user.senha);
+
+    if (!match) {
+      return res.status(401).json({ error: 'Email ou senha incorretos.' });
+    }
+
+    const token = jwt.sign({ id: user.id }, user.email, { expiresIn: '10m' });
+    return res.json({ user, token });;
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Erro ao fazer login.' });
+  }
+};
+
+exports.logout = async(req, res) => {
+  req.session.destroy();
+  return res.status(200).json({ message: 'Logout realizado com sucesso.' });
 };
