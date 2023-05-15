@@ -6,21 +6,13 @@ const jwt = require('jsonwebtoken');
 
 exports.create = async (req, res) => {
   const abrigo_params = {
-    usuario: req.body.usuario,
-    senha: req.body.senha,
     nome: req.body.nome,
-    reponsavel: req.body.responsavel,
+    descricao: req.body.descricao,
+    gestor: req.body.gestor,
     cnpj: req.body.cnpj,
     endereco: req.body.endereco,
-    cidade: req.body.cidade,
     email: req.body.email,
-    whatsapp: req.body.whatsapp,
-    instagram: req.body.instagram,
-    facebook: req.body.facebook,
-    outras: req.body.outras,
-    foto1: req.body.foto1,
-    foto2: req.body.foto2,
-    foto3: req.body.foto3
+    whatsapp: req.body.whatsapp
   };
 
   const senhaCriptografada = await bcrypt.hash(abrigo_params.senha, 10); // gera o hash da senha
