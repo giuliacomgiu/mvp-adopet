@@ -28,7 +28,6 @@ exports.create = async (req, res) => {
 
   await Abrigo.create(abrigo_params)
     .then(data => {
-      
       res.send(data);
     })
     .catch(err => {
