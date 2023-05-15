@@ -89,7 +89,7 @@ export default function DetalhePet({ route }) {
                
                <Text style={[styles.textodetpet]}>Abrigo responsável: </Text>
                <TouchableOpacity onPress={() => navigation.navigate('DetalheAbrigo', animal)}>
-               <Text style={[styles.textodetpet, {color: '#229933', fontWeight: 'bold', fontSize: 18,}]}>{animal.abrigo}{'\n'}</Text>
+                <Text onPress={() => navigation.navigate('DetalheAbrigo', animal)}> fsdfsfds {animal.abrigoId}{'\n'}</Text>
                </TouchableOpacity> 
 
           </View>
@@ -99,6 +99,7 @@ export default function DetalhePet({ route }) {
             height: 80,
             alignItems: 'center',
             alignSelf: 'center',
+            alignItems: 'flex-end',
             padding: 20,
           }}>
             <TouchableOpacity style={[styles.buttonContact, {width: 250}]} >
