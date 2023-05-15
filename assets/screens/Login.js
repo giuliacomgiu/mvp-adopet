@@ -28,8 +28,7 @@ export default function Login() {
       navigation.navigate('Home');
     } catch (error) {
       console.error(error);
-      //alert('Email ou senha incorretos.');
-     alert('Parou aqui.');
+      alert('Email ou senha incorretos.');
     }
   };
 

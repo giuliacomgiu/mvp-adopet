@@ -129,7 +129,7 @@ exports.login = async (req, res) => {
       return res.status(401).json({ error: 'Email ou senha incorretos.' });
     }
 
-    const token = jwt.sign({ id: user.id }, user.email, { expiresIn: '1h' });
+    const token = jwt.sign({ id: user.id }, user.email, { expiresIn: '10m' });
     return res.json({ user, token });;
 
   } catch (error) {

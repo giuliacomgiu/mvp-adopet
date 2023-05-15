@@ -20,6 +20,7 @@ export default function Home() {
     try {
       const token = await AsyncStorage.getItem('@asyncStorage:token');
       const usuario = await AsyncStorage.getItem('@asyncStorage:usuario');
+
       if (token) {
         // Token found, verify its validity
         const decodedToken = jwt_decode(token);
@@ -32,7 +33,7 @@ export default function Home() {
         } else {
           // Token valid
           setIsLoggedIn(true);
-          console.log('Usuário Logado!');
+          console.log('Usuário ' + usuario + ' Logado!');
         }
       } else {
         // Token not found
