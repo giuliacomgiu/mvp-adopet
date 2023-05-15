@@ -56,10 +56,6 @@ export default function Listacao({ navigation }) {
         <View style={{width: '100%'}}>
           <Text style={[styles.title, {marginTop: 5, marginBottom: 10, textAlign: 'center',}]}>CACHORROS CHEIOS DE AMOR!</Text>
         </View>
-        
-
-       
-         
 
           <FlatList
             data={pets}

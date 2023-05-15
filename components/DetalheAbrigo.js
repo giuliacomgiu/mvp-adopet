@@ -18,17 +18,13 @@ import Abrigostestes from './Abrigostestes';
 
 
 export default function DetalheAbrigo({route}) {
-
   const navigation = useNavigation();
-
-  const nomedoabrigo = route?.params;
-
-  //  const [list, setList] = useState(Abrigostestes);
+  const abrigoId = route.params.id;
   const [abrigo, setAbrigo] = useState([]);
-  
+
   let getAbrigo = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/abrigos/1');
+      const response = await fetch(`http://localhost:8080/api/abrigos/${abrigoId}`);
       const abrigo = await response.json();
       setAbrigo(abrigo);
     } catch (error) {
@@ -39,7 +35,7 @@ export default function DetalheAbrigo({route}) {
   useEffect(() => {
     getAbrigo();
   }, []);
-   
+
   return (
     <SafeAreaView>
        <FlatList
