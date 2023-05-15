@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
-import * as React from 'react';
+import React, {useEffect, useState} from 'react';
+// import * as React from 'react';
 import { Text, View, ScrollView, StyleSheet, Image, Button, SafeAreaView, TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
@@ -19,7 +20,24 @@ export default function DetalhePet({route}) {
 
   const navigation = useNavigation();
 
-  const animal = route?.params;
+  // const animal = route?.params;
+
+  const [animal, setAnimal] = useState([]);
+
+  let getAnimal = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/pets/1');
+      const animal = await response.json();
+      setAnimal(animal);
+    } catch (error) {
+      console.log(animal)
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getAnimal();
+  }, []);
 
   return (
      <SafeAreaView>
