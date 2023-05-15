@@ -13,7 +13,5 @@ module.exports = app => {
 
   router.delete("/:id", abrigos.delete);
 
-  router.post('/login', UserController.login);
-
   app.use('/api/abrigos', router);
 };
