@@ -32,7 +32,10 @@ exports.create = async (req, res) => {
 };
 
 exports.findAll = async (req, res) => {
-  await Pet.findAll()
+  const especie = req.query.especie;
+  const condition = especie ? { especie: especie } : null;
+
+  await Pet.findAll({ where: condition })
     .then(data => {
       res.send(data);
     })
@@ -62,7 +65,6 @@ exports.findOne = async (req, res) => {
 
 exports.findByEspecie = async (req, res) => {
   const especie = req.query.especie;
-  console.log(especie)
 
   await Pet.findAll({ where: { especie: especie }})
     .then(data => {

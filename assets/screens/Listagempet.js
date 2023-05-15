@@ -9,13 +9,21 @@ import Listaoutros from './Listaoutros';
 import ListItem from '../../components/ListItem';
 import Petstestes from '../../components/Petstestes';
 
-export default function Listagempet() {
- 
-  const navigation = useNavigation();
+export default function Listagempet({ navigation }) {
+  const [pets, setPets] = useState([]);
+  let getPets = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/pets');
+      const pets = await response.json();
+      setPets(pets);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  const [searchText, setSearchText] = useState('');
-
-  const [list, setList] = useState(Petstestes);
+  useEffect(() => {
+    getPets();
+  }, []);
 
   return (
     <View style={[styles.container]}>
@@ -50,20 +58,15 @@ export default function Listagempet() {
       <View style={{width: '100%'}}>
           <Text style={[styles.title, {marginTop: 5, marginBottom: 10, textAlign: 'center',}]}>ENCONTRE SEU MAIS NOVO AMIGO!</Text>
         </View>
-              
-
           <FlatList
-            data={list}
+            data={pets}
             style={[styles.list, {width: '100%'}]}
             WrapperStyle={styles.tagView}
             numColumns={2}
             showsVerticalScrollIndicator={false}
-            renderItem={({ item }) => <ListItem data={item} />}
+            renderItem={({ item }) => <ListItem data={ item } />}
             keyExtractor={(item) => item.id}
           />
-
-      
-
      </View> 
     </View>
   );

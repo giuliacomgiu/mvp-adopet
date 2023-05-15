@@ -16,17 +16,14 @@ import styles from '../assets/styles/AppStyles';
 
 
 
-export default function DetalhePet({route}) {
-
+export default function DetalhePet({ route }) {
+  const petId = route.params.id;
   const navigation = useNavigation();
-
-  // const animal = route?.params;
-
   const [animal, setAnimal] = useState([]);
 
   let getAnimal = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/pets/1');
+      const response = await fetch(`http://localhost:8080/api/pets/${petId}`);
       const animal = await response.json();
       setAnimal(animal);
     } catch (error) {
