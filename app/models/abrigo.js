@@ -1,12 +1,17 @@
 module.exports = (sequelize, Sequelize) => {
   const Abrigo  = sequelize.define("abrigo", {
-    nome: { type: Sequelize.STRING },
-    descricao: { type: Sequelize.TEXT },
-    gestor: { type: Sequelize.STRING },
-    cnpj: { type: Sequelize.INTEGER },
+    nomeabrigo: { type: Sequelize.STRING },
+    descricao: { type: Sequelize.STRING },
+    responsavel: { type: Sequelize.STRING },
+    cnpj: { type: Sequelize.STRING },
     endereco: { type: Sequelize.STRING },
+    cidade: { type: Sequelize.STRING },
     email: { type: Sequelize.STRING },
-    whatsapp: { type: Sequelize.INTEGER }
+    celular: { type: Sequelize.STRING },
+    instg: { type: Sequelize.STRING },
+    fbook: { type: Sequelize.STRING },
+    outras: { type: Sequelize.STRING },
+    fotoabrigo: { type: Sequelize.STRING }
   });
 
   return Abrigo;

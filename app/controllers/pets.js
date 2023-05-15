@@ -1,15 +1,19 @@
-const db = require("../models");
+const db = require("../models/index");
 const Pet = db.pets;
 const Op = db.Sequelize.Op;
 
 exports.create = async (req, res) => {
   const pet_params = {
-    nome: req.body.nome,
+    nomepet: req.body.nomepet,
+    fotocardpet: req.body.fotocardpet,
+    sexopet: req.body.sexopet,
     descricao: req.body.descricao,
-    idade: req.body.idade,
+    idadepet: req.body.idadepet,
     porte: req.body.porte,
     raca: req.body.raca,
     personalidade: req.body.personalidade,
+    abrigonome: req.body.abrigonome,
+    tipo: req.body.tipo,
     especie: req.body.especie,
     abrigoId: req.body.abrigoId
   };
