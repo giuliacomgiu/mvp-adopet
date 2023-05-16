@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken'); 
 
 exports.create = async (req, res) => {
-  console.log(req.body)
   const abrigo_params = {
     nomeabrigo: req.body.nomeabrigo,
     descricao: req.body.descricao,
@@ -22,7 +21,6 @@ exports.create = async (req, res) => {
     fotoabrigo: req.body.fotoabrigo
   };
 
-  console.log(abrigo_params)
   const senhaCriptografada = await bcrypt.hash(abrigo_params.senha, 10);
   abrigo_params.senha = senhaCriptografada; 
 
