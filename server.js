@@ -12,14 +12,6 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-// db.sequelize.sync({ force: true }).then(() => {
-  // console.log("Drop and re-sync db.");
-// });
-
-db.sequelize.sync().then(() => {
-  console.log("Drop and re-sync db.");
-});
-
 app.get("/api", (req, res) => {
   res.json({ check: "Ok." });
 });
