@@ -89,9 +89,8 @@ export default function DetalhePet({ route }) {
                
                <Text style={[styles.textodetpet]}>Abrigo responsável: </Text>
                <TouchableOpacity onPress={() => navigation.navigate('DetalheAbrigo', { id: animal.abrigoId })}>
-                <Text onPress={() => navigation.navigate('DetalheAbrigo', animal)}> fsdfsfds {animal.abrigoId}{'\n'}</Text>
+               <Text style={[styles.textodetpet, {color: '#229933', fontWeight: 'bold', fontSize: 18,}]}>Veja mais sobre o abrigo</Text>
                </TouchableOpacity> 
-
           </View>
           <View style={{
             flex: 1,
