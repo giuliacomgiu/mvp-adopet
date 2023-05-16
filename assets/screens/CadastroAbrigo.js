@@ -11,8 +11,13 @@ const navigation = useNavigation();
 
 const { control, handleSubmit, formState: { errors } } = useForm({})
 
-function handleSignIn(data){
-   console.log(data);
+async function handleSignIn(data){
+   let res = await fetch("http://localhost:8080/api/abrigos", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify( data )
+    });
+    let resJson = await res.json();
   }
     
   return (

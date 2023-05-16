@@ -7,6 +7,7 @@ module.exports = (sequelize, Sequelize) => {
     endereco: { type: Sequelize.STRING },
     cidade: { type: Sequelize.STRING },
     email: { type: Sequelize.STRING },
+    senha: { type: Sequelize.STRING },
     celular: { type: Sequelize.STRING },
     instg: { type: Sequelize.STRING },
     fbook: { type: Sequelize.STRING },

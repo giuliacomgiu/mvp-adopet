@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken'); 
 
 exports.create = async (req, res) => {
+  console.log(req.body)
   const abrigo_params = {
     nomeabrigo: req.body.nomeabrigo,
     descricao: req.body.descricao,
@@ -13,6 +14,7 @@ exports.create = async (req, res) => {
     endereco: req.body.endereco,
     cidade: req.body.cidade,
     email: req.body.email,
+    senha: req.body.senha,
     celular: req.body.celular,
     instg: req.body.instg,
     fbook: req.body.fbook,
@@ -20,6 +22,7 @@ exports.create = async (req, res) => {
     fotoabrigo: req.body.fotoabrigo
   };
 
+  console.log(abrigo_params)
   const senhaCriptografada = await bcrypt.hash(abrigo_params.senha, 10);
   abrigo_params.senha = senhaCriptografada; 
 
@@ -44,7 +47,7 @@ exports.findAll = async (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials."
+          err.message || "Some error occurred while retrieving abrigos."
       });
     });
 };
@@ -59,7 +62,7 @@ exports.findOne = async (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials."
+          err.message || "Some error occurred while retrieving abrigos."
       });
     });
 };
@@ -71,17 +74,17 @@ exports.update = async (req, res) => {
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Tutorial was updated successfully."
+          message: "Abrigo was updated successfully."
         });
       } else {
         res.send({
-          message: `Cannot update Tutorial with id=${id}. Maybe Tutorial was not found or req.body is empty!`
+          message: `Cannot update Abrigo with id=${id}. Maybe Abrigo was not found or req.body is empty!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Tutorial with id=" + id
+        message: "Error updating Abrigo with id=" + id
       });
     });
 };
@@ -93,17 +96,17 @@ exports.delete = async (req, res) => {
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Tutorial was deleted successfully!"
+          message: "Abrigo was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`
+          message: `Cannot delete Abrigo with id=${id}. Maybe Abrigo was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Tutorial with id=" + id
+        message: "Could not delete Abrigo with id=" + id
       });
     });
 };
