@@ -12,23 +12,30 @@ export default function GerenciaAbrigo() {
 
   const navigation = useNavigation();
 
-  const abr = {Abrigostestes};
+  const [animais_do_abrigo, setList] = useState(Petstestes)
 
-  const [list, setList] = useState(Petstestes)
+  const [abrigo, setAbrigo] = useState([]);
   
-  useState(()=>{
-       setList(
-          Petstestes.filter(item => {
-            return (item.abrigo.indexOf('MEU PET MINHA VIDA') > -1 ); })
-       );
-     },
-  );
+  let getAbrigo = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/abrigos/1`);
+      const animal = await response.json();
+      setAbrigo(animal);
+    } catch (error) {
+      console.log(animal)
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getAbrigo();
+  }, []);
 
   return (
     <SafeAreaView>
       <View style={[styles.containerGerencia, {width: 300}]}>
-        <View style={width= '100%'}>
-          <Text style={[styles.title, {marginTop: 30,}]}>ABRIGO {abr.nomeabrigo}</Text>
+        <View style={{width: '100%'}}>
+          <Text style={[styles.title, {marginTop: 30,}]}>ABRIGO {abrigo.nomeabrigo}</Text>
           <TouchableOpacity onPress={() => navigation.navigate('CadastroAbrigo')}>
             <Text style={[styles.textodetpet, {color: '#229922', fontWeight: 'bold'}]}>Editar dados do abrigo</Text>
           </TouchableOpacity> 
@@ -69,7 +76,7 @@ export default function GerenciaAbrigo() {
           </View>
   
          <FlatList
-            data={list}
+            data={animais_do_abrigo}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => <ListPet data={item} />}
             keyExtractor={(item) => item.id}

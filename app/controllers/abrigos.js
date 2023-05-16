@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../models/index");
 const Abrigo = db.abrigos;
 const Op = db.Sequelize.Op;
 const bcrypt = require('bcrypt');
@@ -6,13 +6,18 @@ const jwt = require('jsonwebtoken');
 
 exports.create = async (req, res) => {
   const abrigo_params = {
-    nome: req.body.nome,
+    nomeabrigo: req.body.nomeabrigo,
     descricao: req.body.descricao,
-    gestor: req.body.gestor,
+    responsavel: req.body.responsavel,
     cnpj: req.body.cnpj,
     endereco: req.body.endereco,
+    cidade: req.body.cidade,
     email: req.body.email,
-    whatsapp: req.body.whatsapp
+    celular: req.body.celular,
+    instg: req.body.instg,
+    fbook: req.body.fbook,
+    outras: req.body.outras,
+    fotoabrigo: req.body.fotoabrigo
   };
 
   const senhaCriptografada = await bcrypt.hash(abrigo_params.senha, 10);

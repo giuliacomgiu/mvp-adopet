@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
-import * as React from 'react';
+import React, {useEffect, useState} from 'react';
+// import * as React from 'react';
 import { Text, View, ScrollView, StyleSheet, Image, Button, SafeAreaView, TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
@@ -15,11 +16,25 @@ import styles from '../assets/styles/AppStyles';
 
 
 
-export default function DetalhePet({route}) {
-
+export default function DetalhePet({ route }) {
   const navigation = useNavigation();
+  const petId = route.params.id;
+  const [animal, setAnimal] = useState([]);
 
-  const animal = route?.params;
+  let getAnimal = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/pets/${petId}`);
+      const animal = await response.json();
+      setAnimal(animal);
+    } catch (error) {
+      console.log(animal)
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getAnimal();
+  }, []);
 
   return (
      <SafeAreaView>
@@ -73,10 +88,9 @@ export default function DetalhePet({route}) {
                <Text style={[styles.textodetpet, {fontWeight: 'bold', fontSize: 18}]}>{animal.descricao}{'\n'}</Text>
                
                <Text style={[styles.textodetpet]}>Abrigo responsável: </Text>
-               <TouchableOpacity onPress={() => navigation.navigate('DetalheAbrigo', animal)}>
-               <Text style={[styles.textodetpet, {color: '#229933', fontWeight: 'bold', fontSize: 18,}]}>{animal.abrigo}{'\n'}</Text>
+               <TouchableOpacity onPress={() => navigation.navigate('DetalheAbrigo', { id: animal.abrigoId })}>
+               <Text style={[styles.textodetpet, {color: '#229933', fontWeight: 'bold', fontSize: 18,}]}>Veja mais sobre o abrigo</Text>
                </TouchableOpacity> 
-
           </View>
           <View style={{
             flex: 1,
@@ -84,6 +98,7 @@ export default function DetalhePet({route}) {
             height: 80,
             alignItems: 'center',
             alignSelf: 'center',
+            alignItems: 'flex-end',
             padding: 20,
           }}>
             <TouchableOpacity style={[styles.buttonContact, {width: 250}]} >

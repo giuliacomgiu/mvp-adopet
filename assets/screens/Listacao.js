@@ -9,21 +9,21 @@ import Listaoutros from './Listaoutros';
 import ListItem from '../../components/ListItem';
 import Petstestes from '../../components/Petstestes';
 
-export default function Listacao() {
- 
-  const navigation = useNavigation();
+export default function Listacao({ navigation }) {
+  const [pets, setPets] = useState([]);
+  let getPets = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/pets?especie=1`);
+      const pets = await response.json();
+      setPets(pets);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  const [searchText, setSearchText] = useState('');
-
-  const [list, setList] = useState(Petstestes)
-  
-  useState(()=>{
-       setList(
-          Petstestes.filter(item => {
-            return (item.tipo.indexOf('caes') > -1 ); })
-       );
-     },
-  );
+  useEffect(() => {
+    getPets();
+  }, []);
  
   return (
     <View style={[styles.container]}>
@@ -56,13 +56,9 @@ export default function Listacao() {
         <View style={{width: '100%'}}>
           <Text style={[styles.title, {marginTop: 5, marginBottom: 10, textAlign: 'center',}]}>CACHORROS CHEIOS DE AMOR!</Text>
         </View>
-        
-
-       
-         
 
           <FlatList
-            data={list}
+            data={pets}
             style={[styles.list, {width: '100%'}]}
             WrapperStyle={styles.tagView}
             numColumns={2}

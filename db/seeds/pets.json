@@ -1,0 +1,68 @@
+[
+  {
+     "especie": 1,
+     "nomepet": "Catioro",
+     "sexopet": "Macho",
+     "idadepet": "3",
+     "porte": "Grande",
+     "raca": "SRD",
+     "personalidade": "Brincalhão",
+     "descricao": "Catioro é um amigo muito brincalhão e agitado, que gosta de correr em grandes quintais e gastar sua energia! Também é muito alegre e carinhoso e adora crianças!",
+     "abrigoId": 1
+  },
+  {
+     "especie": 1,
+     "nomepet": "Snoopy",
+     "sexopet": "Macho",
+     "idadepet": "1",
+     "porte": "Médio",
+     "raca": "SRD",
+     "personalidade": "Calmo",
+     "descricao": "Snoopy é um cachorro calmo e preguiçoso, adora dormir e aconchego",
+     "abrigoId": 2
+  },
+  {
+     "especie": 1,
+     "nomepet": "Xauxixa",
+     "sexopet": "Macho",
+     "idadepet": "1",
+     "porte": "Médio",
+     "raca": "SRD",
+     "personalidade": "Calmo",
+     "descricao": "Xauxixa é um cachorro calmo e preguiçoso, adora dormir e aconchego",
+     "abrigoId": 1
+  },
+  {
+     "especie": 2,
+     "nomepet": "Gatinoia",
+     "sexopet": "Fêmea",
+     "idadepet": "3",
+     "porte": "Pequeno",
+     "raca": "SRD",
+     "personalidade": "Manhosa",
+     "descricao": "Gatínea é uma amiga dócil e manhosa, que adora um carinho e um aconchego! Também é um pouquinho preguiçosa e adora ficar dormindo, principalmente quando está deitada perto de seus novos amigos!",
+     "abrigoId": 2
+  },
+  {
+     "especie": 2,
+     "nomepet": "Mingau",
+     "sexopet": "Macho",
+     "idadepet": "5",
+     "porte": "Pequeno",
+     "raca": "SRD",
+     "personalidade": "Curioso",
+     "descricao": "Mingau é um gato curioso que adora descobrir cantos novos pela casa e ficar aninhado neles.",
+     "abrigoId": 1
+  },
+  {
+     "especie": 3,
+     "nomepet": "Cacti",
+     "sexopet": "Macho",
+     "idadepet": "1",
+     "porte": "não definido",
+     "raca": "Cacatua",
+     "personalidade": "Falador",
+     "descricao": "Cacti é uma cacatua alegre, divertida e curiosa! E adora comer!",
+     "abrigoId": 1
+  }
+]

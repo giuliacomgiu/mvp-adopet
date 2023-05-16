@@ -10,21 +10,20 @@ import ListItem from '../../components/ListItem';
 import Petstestes from '../../components/Petstestes';
 
 export default function Listagato() {
- 
-  const navigation = useNavigation();
+  const [pets, setPets] = useState([]);
+  let getPets = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/pets?especie=2`);
+      const pets = await response.json();
+      setPets(pets);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  const [searchText, setSearchText] = useState('');
-
-  const [list, setList] = useState(Petstestes)
-  
-  useState(()=>{
-       setList(
-          Petstestes.filter(item => {
-            return (item.tipo.indexOf('gatos') > -1 ); })
-       );
-     },
-  );
-  
+  useEffect(() => {
+    getPets();
+  }, []);
 
   return (
     <View style={[styles.container]}>
@@ -45,10 +44,10 @@ export default function Listagato() {
 	                <Image source={require('../src/botao_cao.png')}
 	                  style={{width: 50, height: 50, margin: 10,}} />
 	              </TouchableOpacity>
-	  
+
 	                <Image source={require('../src/botao_gato.png')}
 	                  style={{width: 50, height: 50, margin: 10,}} />
-	              
+
 	              <TouchableOpacity onPress={() => navigation.navigate('Listaoutros')}>
 	                <Image  source={require('../src/botao_outros.png')}
 	                 style={{width: 50, height: 50, margin: 10,}} />
@@ -62,7 +61,7 @@ export default function Listagato() {
         
 
         <FlatList
-            data={list}
+            data={pets}
             style={[styles.list, {width: '100%'}]}
             WrapperStyle={styles.tagView}
             numColumns={2}

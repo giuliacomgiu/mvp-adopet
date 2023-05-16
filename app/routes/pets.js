@@ -9,8 +9,6 @@ module.exports = app => {
 
   router.get("/:id", pets.findOne);
 
-  router.get("/:especie", pets.findByEspecie);
-
   router.put("/:id", pets.update);
 
   router.delete("/:id", pets.delete);
