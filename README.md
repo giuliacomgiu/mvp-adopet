@@ -18,11 +18,11 @@ Monica Tomaz de Jesus
 React native com gerenciador de pacotes Yarn
 
 ## Backend
-NodeJS e ExpressJS
-Sequelize como interface com o banco de dados
-Json Web Token e Bycrypt para autenticação
-CORS
-Nodemon para desenvolvimento local
+- NodeJS e ExpressJS
+- Sequelize como interface com o banco de dados
+- Json Web Token e Bycrypt para autenticação
+- CORS
+- Nodemon para desenvolvimento local
 
 ## Banco de Dados
 MySQL com engine InnoDB
