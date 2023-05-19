@@ -20,8 +20,15 @@ const tipoPet = [
 
 const { control, handleSubmit, formState: { errors } } = useForm({})
 
-function handleSignIn(data){
-   console.log(data);
+async function handleSignIn(data){
+  let res = await fetch("http://localhost:8080/api/pets", {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify( data )
+  });
+  let resJson = await res.json();
+
+  navigation.navigate('Home');
   }
     
   return (
@@ -53,7 +60,7 @@ function handleSignIn(data){
         <Text style={[styles.textoForm]}>Tipo de animal (preenchimento obrigatório):</Text>
         <Controller 
           control={control} 
-          name="tipopet" 
+          name="tipo" 
           render={({ field: {onChange, value} }) => (
             <SelectList 
                 setSelected={(value) => onChange(value)}
@@ -73,7 +80,7 @@ function handleSignIn(data){
         <Text style={styles.textoForm}>{'\n'}Nome do animal:</Text>
         <Controller
           control={control}
-          name="nomeanimal"
+          name="nomepet"
           render={({ field: {onChange, value} }) => (
             <TextInput
               style={styles.input}
@@ -86,7 +93,7 @@ function handleSignIn(data){
         <Text style={styles.textoForm}>Idade (definir anos e meses): </Text>
         <Controller
           control={control}
-          name="idade"
+          name="idadepet"
           render={({ field: {onChange, value} }) => (
               <TextInput
               style={styles.input}
@@ -99,7 +106,7 @@ function handleSignIn(data){
         <Text style={styles.textoForm}>Sexo</Text>
         <Controller
           control={control}
-          name="sexo"
+          name="sexopet"
           render={({ field: {onChange, value} }) => (
             
             <TextInput
@@ -163,116 +170,23 @@ function handleSignIn(data){
               onChangeText={onChange}
               value={value}
             />
-          )}
+          )} 
         />
 
  
-        <Text style={styles.textoForm}>Fotos do animal: </Text>
-
-        <View style={{
-        width: 300,
-        padding: 2,
-        flexDirection: 'column',
-        flexWrap: 'wrap',
-      }}>
-         {/*  linha */}
-          <View style={{
-            padding: 2,
-            width: 250,
-            flexDirection: 'row',
-          }}>
-            <View style={{
-            }}> 
-               <Controller
-	                 control={control}
-	                 name="fotopet1"
-	                 render={({ field: {onChange, value} }) => (
-	                     <TextInput
-	                     style={[styles.input, {width: 250}]}
-	                     onChangeText={onChange}
-	                     value={value}
-	                   />
-	                 )}
+        <Text style={styles.textoForm}>Foto do animal (informe a URL onde está hospedada a imagem com a dimensão 512x512):</Text>
+	        <Controller
+	          control={control}
+	          name="fotocardpet"
+	          render={({ field: {onChange, value} }) => (
+	            
+	            <TextInput
+	              style={styles.input}
+	              onChangeText={onChange}
+	              value={value}
+	            />
+	          )}
         />
-            </View>
-            
-            <View style={{
-              width: 50,
-              height: 30,
-              paddingLeft: 15,
-            }}>
-              <TouchableOpacity style={[styles.button, {width: 40,}]}>
-                <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
-              </TouchableOpacity>
-            </View>
-
-          </View>
-          
-          {/*  linha */}
-	            <View style={{ 
-	              padding: 2,
-	              width: 250,
-	              flexDirection: 'row',
-	            }}>
-	              <View style={{
-	              }}> 
-	                  <Controller
-			           control={control}
-			           name="fotopet2"
-			           render={({ field: {onChange, value} }) => (
-			               <TextInput
-			               style={[styles.input, {width: 250}]}
-			               onChangeText={onChange}
-			               value={value}
-			             />
-			           )}
-        />
-	              </View>
-	              
-	              <View style={{
-	                width: 50,
-	                height: 30,
-                    paddingLeft: 15,
-	              }}>
-	                <TouchableOpacity style={[styles.button, {width: 40}]}>
-	                  <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
-	                </TouchableOpacity>
-	              </View>
-	  
-          </View>
-          
-           {/*  linha */}
-	  	            <View style={{
-	  	              padding: 2,
-	  	              width: 250,
-	  	              flexDirection: 'row',
-	  	            }}>
-	  	              <View style={{
-	  	              }}> 
-	  	                  <Controller
-				            control={control}
-				            name="fotopet3"
-				            render={({ field: {onChange, value} }) => (
-				                <TextInput
-				                style={[styles.input, {width: 250}]}
-				                onChangeText={onChange}
-				                value={value}
-				              />
-				            )}
-        />
-	  	              </View>
-	  	              
-	  	              <View style={{
-	  	                width: 50,
-	  	                height: 30,
-                        paddingLeft: 15,
-	  	              }}>
-	  	                <TouchableOpacity style={[styles.button, {width: 40}]}>
-	  	                  <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
-	  	                </TouchableOpacity>
-	  	              </View>
-              </View>
-            </View>
          
 	  	  
         <TouchableOpacity style={[styles.button, {width: 250, alignSelf: 'center', margin: 30}]} onPress={handleSubmit(handleSignIn)}>

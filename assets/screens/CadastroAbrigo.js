@@ -11,8 +11,15 @@ const navigation = useNavigation();
 
 const { control, handleSubmit, formState: { errors } } = useForm({})
 
-function handleSignIn(data){
-   console.log(data);
+async function handleSignIn(data){
+   let res = await fetch("http://localhost:8080/api/abrigos", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify( data )
+    });
+    let resJson = await res.json();
+
+    navigation.navigate('Login');
   }
     
   return (
@@ -60,20 +67,6 @@ function handleSignIn(data){
           name="senha"
           render={({ field: {onChange, value} }) => (
             <TextInput
-              style={styles.input}
-              onChangeText={onChange}
-              value={value}
-              secureTextEntry={true}
-            />
-          )}
-        />
-
-        <Text style={styles.textoForm}>Confirme a senha: *</Text>
-        <Controller
-          control={control}
-          name="confsenha"
-          render={({ field: {onChange, value} }) => (
-              <TextInput
               style={styles.input}
               onChangeText={onChange}
               value={value}
@@ -223,113 +216,6 @@ function handleSignIn(data){
             />
           )}
         />
-
-        <Text style={styles.textoForm}>Fotos do abrigo: </Text>
-
-        <View style={{
-        width: 300,
-        padding: 2,
-        flexDirection: 'column',
-        flexWrap: 'wrap',
-      }}>
-         {/*  linha */}
-          <View style={{
-            padding: 2,
-            width: 250,
-            flexDirection: 'row',
-          }}>
-            <View style={{
-            }}> 
-               <Controller
-	                 control={control}
-	                 name="fotoabrigo1"
-	                 render={({ field: {onChange, value} }) => (
-	                     <TextInput
-	                     style={[styles.input, {width: 250}]}
-	                     onChangeText={onChange}
-	                     value={value}
-	                   />
-	                 )}
-        />
-            </View>
-            
-            <View style={{
-              width: 50,
-              height: 30,
-              paddingLeft: 15,
-            }}>
-              <TouchableOpacity style={[styles.button, {width: 40,}]}>
-                <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
-              </TouchableOpacity>
-            </View>
-
-          </View>
-          
-          {/*  linha */}
-	            <View style={{ 
-	              padding: 2,
-	              width: 250,
-	              flexDirection: 'row',
-	            }}>
-	              <View style={{
-	              }}> 
-	                  <Controller
-			           control={control}
-			           name="fotoabrigo2"
-			           render={({ field: {onChange, value} }) => (
-			               <TextInput
-			               style={[styles.input, {width: 250}]}
-			               onChangeText={onChange}
-			               value={value}
-			             />
-			           )}
-        />
-	              </View>
-	              
-	              <View style={{
-	                width: 50,
-	                height: 30,
-                    paddingLeft: 15,
-	              }}>
-	                <TouchableOpacity style={[styles.button, {width: 40}]}>
-	                  <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
-	                </TouchableOpacity>
-	              </View>
-	  
-          </View>
-          
-           {/*  linha */}
-	  	            <View style={{
-	  	              padding: 2,
-	  	              width: 250,
-	  	              flexDirection: 'row',
-	  	            }}>
-	  	              <View style={{
-	  	              }}> 
-	  	                  <Controller
-				            control={control}
-				            name="fotoabrigo3"
-				            render={({ field: {onChange, value} }) => (
-				                <TextInput
-				                style={[styles.input, {width: 250}]}
-				                onChangeText={onChange}
-				                value={value}
-				              />
-				            )}
-        />
-	  	              </View>
-	  	              
-	  	              <View style={{
-	  	                width: 50,
-	  	                height: 30,
-                        paddingLeft: 15,
-	  	              }}>
-	  	                <TouchableOpacity style={[styles.button, {width: 40}]}>
-	  	                  <Text style={[styles.buttonText, {fontWeight: 'bold'}]}>+</Text>
-	  	                </TouchableOpacity>
-	  	              </View>
-              </View>
-            </View>
 
         <TouchableOpacity style={[styles.button, {width: 250, alignSelf: 'center', margin: 30}]} onPress={handleSubmit(handleSignIn)}>
           <Text style={[styles.buttonText]}>CADASTRAR</Text>

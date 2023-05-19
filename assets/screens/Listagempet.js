@@ -13,7 +13,7 @@ export default function Listagempet({ navigation }) {
   const [pets, setPets] = useState([]);
   let getPets = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/pets');
+      const response = await fetch(`http://localhost:8080/api/pets`);
       const pets = await response.json();
       setPets(pets);
     } catch (error) {

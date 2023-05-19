@@ -2,7 +2,7 @@ export default [
    {
    id: '1',
    tipo: 'caes',
-   fotocardpet: require('../assets/src/catioro.png'),
+   fotocardpet: "https://m.media-amazon.com/images/I/81glJSbNU5L.png",
    nomepet: "Catioro",
    sexopet: "Macho",
    idadepet: "3 anos",
@@ -15,7 +15,7 @@ export default [
 {
    id: '2',
    tipo: 'caes',
-   fotocardpet: require('../assets/src/catioro.png'),
+   fotocardpet: "https://i.pinimg.com/736x/35/17/d4/3517d449cd8899c313434b8336688838--cat-breeds-samoyed-dogs.jpg",
    nomepet: "Snoopy",
    sexopet: "Macho",
    idadepet: "1 anos",
@@ -28,7 +28,7 @@ export default [
 {
    id: '3',
    tipo: 'caes',
-   fotocardpet: require('../assets/src/catioro.png'),
+   fotocardpet: "https://m.media-amazon.com/images/I/81NGXVSGWFL.png",
    nomepet: "Xauxixa",
    sexopet: "Macho",
    idadepet: "1 anos",
@@ -41,7 +41,7 @@ export default [
 {
    id: '4',
    tipo: 'gatos',
-   fotocardpet: require('../assets/src/gatinea.png'),
+   fotocardpet: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4JEaVx8sKT0c5_CMYou_1kc0blzweRQU7tg&usqp=CAU",
    nomepet: "Gatinea",
    sexopet: "Fêmea",
    idadepet: "3 anos",
@@ -54,7 +54,7 @@ export default [
   {
    id: '5',
    tipo: 'gatos',
-   fotocardpet: require('../assets/src/gatinea.png'),
+   fotocardpet: "https://i2.wp.com/gatinhobranco.com/wp-content/uploads/2017/03/gatos-preferem-pessoas-comida.jpg?fit=1024%2C683",
    nomepet: "Mingau",
    sexopet: "Macho",
    idadepet: "5 anos",
@@ -67,7 +67,7 @@ export default [
 {
    id: '6',
    tipo: 'outros',
-   fotocardpet: require('../assets/src/cacti.png'),
+   fotocardpet: "https://www.passaro.org/wp-content/uploads/2018/10/cacatua-inca-cacatua-inca.jpg",
    nomepet: "Cacti",
    sexopet: "Macho",
    idadepet: "1 anos",
@@ -77,4 +77,26 @@ export default [
    descricao: "Cacti é uma cacatua alegre, divertida e curiosa! E adora comer!",
    abrigo: "MEU PET MINHA VIDA",
 },
+{  
+   id:7,
+   tipo:"Cães",
+   fotocardpet:"https://play-lh.googleusercontent.com/42Bw-VZcK_OQOCa0BpFJrAK7VtNWv6dGPX4FJurmqWk6NgbYQZ_XmD8y_2Fqd_1KzGs",
+   nomepet:"Scooby-Doo",
+   sexopet:"Macho",
+   descricao:"Ama biscoitos scooby",
+   idadepet:16,
+   porte:"Médio",
+   raca:"Dogue Alemão",
+   personalidade:"Comilão e preguiçoso"
+},
+{  id:8,
+   tipo:"Cães",
+   fotocardpet:"https://i.pinimg.com/736x/0b/f9/85/0bf98597ea553bfb9335ade825435afd.jpg",
+   nomepet:"Glutão",
+   sexopet:"Macho",
+   idadepet:3,
+   porte:"Pequeno",
+   raca:"Shiba Inu",
+   personalidade:"Bagunceiro"
+}
 ];
