@@ -9,11 +9,11 @@ import Listaoutros from './Listaoutros';
 import ListItem from '../../components/ListItem';
 import Petstestes from '../../components/Petstestes';
 
-export default function Listagato() {
+export default function Listagato({ navigation }) {
   const [pets, setPets] = useState([]);
   let getPets = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/pets?especie=2`);
+      const response = await fetch(`http://localhost:8080/api/pets?tipo=Gatos`);
       const pets = await response.json();
       setPets(pets);
     } catch (error) {

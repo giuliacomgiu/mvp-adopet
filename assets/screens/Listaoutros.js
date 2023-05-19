@@ -13,7 +13,7 @@ export default function Listaoutros({ navigation }) {
   const [pets, setPets] = useState([]);
   let getPets = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/pets?especie=3`);
+      const response = await fetch(`http://localhost:8080/api/pets?tipo=Outros`);
       const pets = await response.json();
       setPets(pets);
     } catch (error) {

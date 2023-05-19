@@ -32,8 +32,8 @@ exports.create = async (req, res) => {
 };
 
 exports.findAll = async (req, res) => {
-  const especie = req.query.especie;
-  const condition = especie ? { especie: especie } : null;
+  const tipo= req.query.tipo;
+  const condition = tipo ? { tipo: tipo } : null;
 
   await Pet.findAll({ where: condition })
     .then(data => {
@@ -64,9 +64,9 @@ exports.findOne = async (req, res) => {
 };
 
 exports.findByEspecie = async (req, res) => {
-  const especie = req.query.especie;
+  const tipo = req.query.tipo;
 
-  await Pet.findAll({ where: { especie: especie }})
+  await Pet.findAll({ where: { tipo: tipo }})
     .then(data => {
       res.send(data);
     })

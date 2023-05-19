@@ -61,7 +61,7 @@ export default function DetalhePet({ route }) {
             height: 300,
             alignItems: 'center',
           }}>
-             <Image source={animal.fotocardpet} style={[styles.fotopet]} />
+             <Image source={animal.fotocardpet}  style={[styles.fotocardpets]}/>
           </View>
           <View style={{
             flex: 1,
